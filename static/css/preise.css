@@ -37,11 +37,20 @@
     font-weight: 400;
 }
 
+.pricing-grid-with-info {
+    display: flex;
+    gap: 40px;
+    max-width: 1600px;
+    margin: 60px auto 0;
+    padding: 0 20px;
+    align-items: flex-start;
+}
+
 .pricing-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: 30px;
-    margin-top: 60px;
+    flex: 2;
 }
 
 .pricing-card {
@@ -104,28 +113,32 @@
 }
 
 .funding-info {
-    max-width: 800px;
-    margin: 60px auto 0;
+    flex: 1;
+    max-width: 400px;
     padding: 30px;
-    background: rgba(255, 255, 255, 0.08);
+    background: rgba(239, 68, 68, 0.15);
     backdrop-filter: blur(20px);
     border-radius: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(239, 68, 68, 0.3);
     color: white;
     text-align: left;
+    position: sticky;
+    top: 120px;
+    align-self: flex-start;
 }
 
 .funding-info h3 {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     font-weight: 700;
     margin-bottom: 20px;
-    color: #667eea;
+    color: #ef4444;
     text-align: center;
+    line-height: 1.3;
 }
 
 .funding-info p {
-    font-size: 1rem;
-    line-height: 1.6;
+    font-size: 0.9rem;
+    line-height: 1.5;
     margin-bottom: 15px;
     color: rgba(255, 255, 255, 0.9);
 }
@@ -135,8 +148,25 @@
 }
 
 .funding-info strong {
-    color: #667eea;
+    color: #ef4444;
     font-weight: 600;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+    .pricing-grid-with-info {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .pricing-grid {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    }
+    
+    .funding-info {
+        position: static;
+        max-width: 100%;
+    }
 }
 
 
