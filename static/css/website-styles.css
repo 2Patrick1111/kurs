@@ -528,6 +528,11 @@ body {
     margin-bottom: 1rem;
     display: flex;
     align-items: center;
+    justify-content: center;
+}
+
+.contact-email-section {
+    text-align: center;
 }
 
 .contact-form-section {
