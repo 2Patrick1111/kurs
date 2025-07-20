@@ -106,14 +106,21 @@ Preferred communication style: Simple, everyday language.
 
 ## Recent Changes
 
-### Pricing Page Implementation (July 2025)
-- **Added**: New pricing page (`/preise`) with four AI-PASS course packages
-- **Changed**: Homepage (`/`) now displays the pricing page as the main landing page
+### Course Preview Homepage Implementation (July 2025)
+- **Added**: New course preview page (`/kurs-einblick`) featuring interactive browser mockup design
+- **Changed**: Homepage (`/`) now displays the course preview page as the main landing page
 - **Features**: 
-  - AI-PASS Gefördert (100% state-funded, €0)
-  - AI-PASS Videokurs (Self-paced video course, €995)
-  - AI-PASS Premium (Complete program without funding, €2,495)
-  - AI-PASS Enterprise (Custom enterprise solution, on request)
+  - Browser window mockup with macOS-style traffic lights and address bar
+  - Interactive course content divided into Theorie (Theory) and Praxis (Practice) sections
+  - Department-specific content areas (Marketing, HR, Support, Finance, IT, Recht)
+  - Video players, document previews, quiz components, and assignment sections
+  - Detailed course material previews with tool recommendations and practice exercises
+- **Design**: Glass morphism effects with gradient backgrounds and interactive elements
+- **Integration**: Uses existing Flask template system with base.html inheritance
+- **Navigation**: Maintains original header, footer, and background styling
+- **Interactivity**: JavaScript-powered content switching and interactive elements
+
+### Previous Pricing Page Implementation (July 2025)
+- **Available**: Pricing page accessible at `/preise` with four AI-PASS course packages
+- **Features**: AI-PASS Gefördert, Videokurs, Premium, and Enterprise packages
 - **Design**: Modern card-based layout with hover effects and responsive design
-- **Navigation**: Added to main header, mobile menu, and footer navigation
-- **Styling**: Custom CSS with glass morphism effects and smooth animations

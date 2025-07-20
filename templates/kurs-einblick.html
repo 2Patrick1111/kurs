@@ -1,24 +1,13 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Allstars - Kurseinblick</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+{% extends "base.html" %}
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
+{% block extra_head %}
+<style>
+        .kurs-einblick-container {
             padding: 40px 20px;
             display: flex;
             align-items: center;
             justify-content: center;
+            min-height: 80vh;
         }
 
         .browser-window {
@@ -731,8 +720,10 @@
             }
         }
     </style>
-</head>
-<body>
+{% endblock %}
+
+{% block content %}
+<div class="kurs-einblick-container">
     <div class="browser-window">
         <!-- macOS Browser Header -->
         <div class="browser-header">
@@ -1380,5 +1371,5 @@
             });
         });
     </script>
-</body>
-</html>
+</div>
+{% endblock %}
