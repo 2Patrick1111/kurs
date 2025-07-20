@@ -20,8 +20,15 @@
 
 
 
+        .hero-main-text {
+            font-size: 80px;
+            color: white;
+            margin: 0;
+            text-align: center;
+        }
+
         .gradient-text {
-            background: linear-gradient(135deg, #00d4ff 0%, #5a67d8 100%);
+            background: linear-gradient(90deg, #0080ff 0%, #ff0040 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -184,9 +191,8 @@
         }
 
         @media (max-width: 768px) {
-            .hero-text p:first-child {
+            .hero-main-text {
                 font-size: 40px;
-                line-height: 1.2;
             }
             
             .hero-stats {
@@ -1378,7 +1384,7 @@
 <section class="hero-section">
     <div class="hero-content">
         <div class="hero-text">
-            <p>Entfessle die KI‑Superkräfte deines Teams</p>
+            <p class="hero-main-text">Entfessle die <span class="gradient-text">KI‑Superkräfte</span> deines Teams</p>
             <p class="hero-subtitle">Entdecke mit dem AI‑PASS, wie du KI‑Tools erfolgreich in deinem Arbeitsalltag einsetzt und dabei bis zu 100% Förderung erhältst.</p>
             <div class="hero-stats">
                 <div class="stat">
