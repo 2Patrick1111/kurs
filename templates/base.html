@@ -27,9 +27,10 @@
             <img src="{{ url_for('static', filename='allstars-logo-white.png') }}" alt="AI Allstars" class="logo-image" title="Zur Startseite">
         </a>
         <nav class="header-nav" id="headerNav">
-            <a href="{{ url_for('team') }}">Team</a>
+            <a href="{{ url_for('index') }}">Home</a>
             <a href="{{ url_for('preise') }}">Preise</a>
-            <a href="{{ url_for('roi_calculator') }}">ROI-Rechner</a>
+            <a href="{{ url_for('team') }}">Team</a>
+            <a href="{{ url_for('roi_calculator') }}">Kurs</a>
             <a href="{{ url_for('kontakt') }}">Kontakt</a>
         </nav>
         <a href="{{ url_for('kontakt') }}" class="header-cta">AI Pass Beratung</a>
@@ -41,9 +42,10 @@
         
         <!-- Mobile Dropdown Menu -->
         <nav class="mobile-nav" id="mobileNav">
-            <a href="{{ url_for('team') }}" class="mobile-nav-item">Team</a>
+            <a href="{{ url_for('index') }}" class="mobile-nav-item">Home</a>
             <a href="{{ url_for('preise') }}" class="mobile-nav-item">Preise</a>
-            <a href="{{ url_for('roi_calculator') }}" class="mobile-nav-item">ROI-Rechner</a>
+            <a href="{{ url_for('team') }}" class="mobile-nav-item">Team</a>
+            <a href="{{ url_for('roi_calculator') }}" class="mobile-nav-item">Kurs</a>
             <a href="{{ url_for('kontakt') }}" class="mobile-nav-item">Kontakt</a>
             <a href="{{ url_for('kontakt') }}" class="mobile-cta">AI Pass Beratung</a>
         </nav>
