@@ -107,6 +107,7 @@
     background: rgba(255, 107, 107, 0.1);
     border: 2px solid #ff6b6b;
     box-shadow: 0 20px 40px rgba(255, 107, 107, 0.2);
+    grid-column: span 2;
 }
 
 .funding-card .package-name {
@@ -135,6 +136,13 @@
 .funding-content strong {
     color: #ff6b6b;
     font-weight: 600;
+}
+
+/* Responsive für kleinere Bildschirme */
+@media (max-width: 768px) {
+    .funding-card {
+        grid-column: span 1;
+    }
 }
 
 
