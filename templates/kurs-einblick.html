@@ -34,11 +34,22 @@
             font-size: 1.3rem;
             font-weight: 700;
             color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 50px;
+            margin-bottom: 20px;
             max-width: 800px;
             margin-left: auto;
             margin-right: auto;
             line-height: 1.5;
+        }
+
+        .arrow-container {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .curved-arrow {
+            width: 200px;
+            height: 60px;
+            opacity: 0.8;
         }
 
         .hero-stats {
@@ -190,6 +201,11 @@
             .hero-main-title {
                 font-size: 40px;
                 line-height: 1.2;
+            }
+
+            .curved-arrow {
+                width: 150px;
+                height: 45px;
             }
             
             .hero-stats {
@@ -1383,6 +1399,20 @@
         <div class="hero-text">
             <p class="hero-main-title">Entfessle die KI‑Superkräfte deines Teams</p>
             <p class="hero-subtitle">Interaktiver Kurseinblick: So funktioniert unser 5‑Wochen AI‑PASS</p>
+            
+            <!-- Curved Arrow -->
+            <div class="arrow-container">
+                <svg class="curved-arrow" viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <marker id="arrowhead" markerWidth="10" markerHeight="7" 
+                                refX="9" refY="3.5" orient="auto">
+                            <polygon points="0 0, 10 3.5, 0 7" fill="#00d4ff" />
+                        </marker>
+                    </defs>
+                    <path d="M 50 20 Q 100 5 150 30" stroke="#00d4ff" stroke-width="3" 
+                          fill="none" marker-end="url(#arrowhead)" />
+                </svg>
+            </div>
 
         </div>
     </div>
