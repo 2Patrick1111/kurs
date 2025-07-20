@@ -391,13 +391,16 @@ body {
 }
 
 .contact-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 2rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 .contact-info-section {
     padding: 4rem 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .contact-info-title {
@@ -427,15 +430,13 @@ body {
 }
 
 .contact-methods-grid {
-    display: flex;
-    justify-content: center;
     width: 100%;
+    max-width: 800px;
 }
 
 .contact-method {
     position: relative;
-    max-width: 800px;
-    width: 90%;
+    width: 100%;
     text-align: center;
 }
 
