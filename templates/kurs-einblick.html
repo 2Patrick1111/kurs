@@ -665,10 +665,39 @@
             display: inline-block;
         }
 
-        .hero-image-placeholder {
+        .hero-section {
+            position: relative;
             margin: 20px 0 30px 0;
             width: 100%;
+        }
+
+        .hero-image-placeholder {
+            width: 100%;
             text-align: center;
+        }
+
+        .overlay-header {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            text-align: center;
+            background: linear-gradient(transparent, rgba(0,0,0,0.4));
+            padding: 40px 20px 20px;
+            margin: 0;
+        }
+
+        .overlay-header h1 {
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .overlay-header p {
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.8);
+            font-size: 1.2rem;
+            opacity: 0.95;
         }
 
         .hero-content {
@@ -1029,13 +1058,14 @@
                 </div>
             </div>
 
-            <div class="hero-image-placeholder">
-                <img src="{{ url_for('static', filename='images/hero-team-image.png') }}" alt="AI Allstars Team" style="width: 100%; max-width: 600px; height: auto; margin: 0 auto; display: block;">
-            </div>
-
-            <div class="header">
-                <h1>🚀 AI‑PASS Kurseinblick</h1>
-                <p>Entdecke, wie unser Programm dich zum KI‑Champion macht</p>
+            <div class="hero-section">
+                <div class="hero-image-placeholder">
+                    <img src="{{ url_for('static', filename='images/hero-team-image.png') }}" alt="AI Allstars Team" style="width: 100%; max-width: 600px; height: auto; margin: 0 auto; display: block; opacity: 0.7;">
+                </div>
+                <div class="header overlay-header">
+                    <h1>🚀 AI‑PASS Kurseinblick</h1>
+                    <p>Entdecke, wie unser Programm dich zum KI‑Champion macht</p>
+                </div>
             </div>
 
             <div id="mainMenu">
