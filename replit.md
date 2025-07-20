@@ -122,9 +122,11 @@ Preferred communication style: Simple, everyday language.
 - **Interactivity**: JavaScript-powered content switching with fixed browser dimensions and internal scrolling
 - **Computer Mockup**: 
   - 3D rotated MacBook keyboard (25° perspective) with realistic keys and trackpad
-  - Fixed browser content height (600px desktop, 500px mobile) with internal scrolling
-  - Scaled design (85% desktop, 75% mobile) for optimal page integration
+  - Fixed browser content height (700px desktop, 600px mobile) with internal scrolling
+  - Scaled design (100% desktop, 80% mobile) for optimal page integration
   - Content switching maintains browser size with smooth transitions
+  - Authentic MacBook color scheme: grey keyboard base, black keys, white illuminated text
+  - Thin border around desktop field with keyboard aligned to match border width
 
 ### Previous Pricing Page Implementation (July 2025)
 - **Available**: Pricing page accessible at `/preise` with four AI-PASS course packages
