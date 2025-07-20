@@ -4,7 +4,7 @@ from app import app
 @app.route('/')
 def index():
     """Homepage route"""
-    return render_template('index.html', page_title='Startseite')
+    return render_template('kontakt.html', page_title='Kontakt')
 
 @app.route('/team')
 def team():
