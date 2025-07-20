@@ -356,6 +356,10 @@ body {
     background-clip: text;
 }
 
+.contact-hero h1 {
+    font-size: clamp(2.5rem, 8vw, 80px);
+}
+
 .hero-subtitle {
     font-size: clamp(1rem, 2vw, 1.5rem);
     color: var(--text-secondary);
