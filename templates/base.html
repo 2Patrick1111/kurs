@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{{ page_title }} - AI Allstars{% endblock %}</title>
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome für Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/website-styles.css') }}">
+    
+    {% block extra_head %}{% endblock %}
+</head>
+<body>
+    <!-- Starry Background -->
+    <div class="starry-bg"></div>
+
+    <!-- Header -->
+    <header class="liquid-header" id="header">
+        <a href="{{ url_for('index') }}" class="header-logo" id="main-logo" onclick="handleLogoClick(event)">
+            <svg class="logo-image" viewBox="0 0 200 40" width="200" height="40">
+                <defs>
+                    <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" style="stop-color:#0080FF;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#fe0000;stop-opacity:1" />
+                    </linearGradient>
+                </defs>
+                <text x="10" y="28" font-family="Sora, sans-serif" font-size="24" font-weight="700" fill="url(#logoGradient)">AI Allstars</text>
+            </svg>
+        </a>
+        <nav class="header-nav" id="headerNav">
+            <a href="{{ url_for('team') }}">Team</a>
+            <a href="{{ url_for('roi_calculator') }}">ROI-Rechner</a>
+            <a href="{{ url_for('kontakt') }}">Kontakt</a>
+        </nav>
+        <a href="{{ url_for('kontakt') }}" class="header-cta">AI Pass Beratung</a>
+        
+        <!-- Mobile Star Menu Button -->
+        <button class="star-menu-button" id="menuToggle" aria-label="Menü öffnen" aria-expanded="false">
+            <svg class="star-icon" viewBox="0 0 24 24" width="24" height="24">
+                <path fill="white" d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+            </svg>
+        </button>
+        
+        <!-- Mobile Dropdown Menu -->
+        <nav class="mobile-nav" id="mobileNav">
+            <a href="{{ url_for('team') }}" class="mobile-nav-item">Team</a>
+            <a href="{{ url_for('roi_calculator') }}" class="mobile-nav-item">ROI-Rechner</a>
+            <a href="{{ url_for('kontakt') }}" class="mobile-nav-item">Kontakt</a>
+            <a href="{{ url_for('kontakt') }}" class="mobile-cta">AI Pass Beratung</a>
+        </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <div class="footer-logo">
+                    <svg class="footer-logo-image" viewBox="0 0 200 40" width="200" height="40">
+                        <defs>
+                            <linearGradient id="footerLogoGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop offset="0%" style="stop-color:#0080FF;stop-opacity:1" />
+                                <stop offset="100%" style="stop-color:#fe0000;stop-opacity:1" />
+                            </linearGradient>
+                        </defs>
+                        <text x="10" y="28" font-family="Sora, sans-serif" font-size="24" font-weight="700" fill="url(#footerLogoGradient)">AI Allstars</text>
+                    </svg>
+                </div>
+                <p>Ihr Partner für erfolgreiche KI-Transformation</p>
+            </div>
+            
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h4>Services</h4>
+                    <a href="{{ url_for('roi_calculator') }}">KI-Potenzialanalyse</a>
+                    <a href="{{ url_for('index') }}#features">AI Pass Details</a>
+                    <a href="{{ url_for('appointment') }}">Strategiegespräch</a>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Unternehmen</h4>
+                    <a href="{{ url_for('team') }}#team-slider">Über uns</a>
+                    <a href="{{ url_for('team') }}">Team</a>
+                    <a href="{{ url_for('index') }}#signup">Kontakt</a>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Rechtliches</h4>
+                    <a href="{{ url_for('datenschutz') }}">Datenschutz</a>
+                    <a href="{{ url_for('impressum') }}">Impressum</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2025 AI Allstars. Alle Rechte vorbehalten.</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="{{ url_for('static', filename='js/header-functionality.js') }}"></script>
+    {% block extra_scripts %}{% endblock %}
+</body>
+</html>
