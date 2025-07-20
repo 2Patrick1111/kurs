@@ -24,7 +24,7 @@
     <!-- Header -->
     <header class="liquid-header" id="header">
         <a href="/" class="header-logo" id="main-logo" onclick="handleLogoClick(event)">
-            <img src="static/images/allstars-logo-white.png" alt="AI Allstars" class="logo-image" title="Zur Startseite">
+            <img src="{{ url_for('static', filename='allstars-logo-white.png') }}" alt="AI Allstars" class="logo-image" title="Zur Startseite">
         </a>
         <nav class="header-nav" id="headerNav">
             <a href="{{ url_for('team') }}">Team</a>
@@ -59,7 +59,7 @@
         <div class="footer-container">
             <div class="footer-brand">
                 <div class="footer-logo">
-                    <img src="static/images/allstars-logo-white.png" alt="AI Allstars" class="footer-logo-image">
+                    <img src="{{ url_for('static', filename='allstars-logo-white.png') }}" alt="AI Allstars" class="footer-logo-image">
                 </div>
                 <p>Ihr Partner für erfolgreiche KI-Transformation</p>
             </div>

@@ -127,6 +127,7 @@ Preferred communication style: Simple, everyday language.
   - Content switching maintains browser size with smooth transitions
   - Authentic MacBook color scheme: grey keyboard base, black keys, white illuminated text
   - Thin border around desktop field with keyboard aligned to match border width
+  - Authentic AI Allstars logo integrated throughout website (header and footer)
 
 ### Previous Pricing Page Implementation (July 2025)
 - **Available**: Pricing page accessible at `/preise` with four AI-PASS course packages
