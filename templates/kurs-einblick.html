@@ -1082,40 +1082,116 @@
                 gap: 20px;
             }
 
+            /* Mobile Phone Frame */
+            .browser-container {
+                transform: none;
+                padding: 20px 0;
+            }
+
             .browser-window {
-                margin: 10px;
-                border-radius: 8px;
+                width: 320px;
+                height: 568px;
+                background: #1a1a1a;
+                border-radius: 35px;
+                padding: 20px 10px;
+                margin: 0 auto;
+                position: relative;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+                border: 3px solid #333;
             }
-            
+
+            .browser-window::before {
+                content: '';
+                position: absolute;
+                top: 10px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 60px;
+                height: 4px;
+                background: #666;
+                border-radius: 2px;
+            }
+
+            .browser-window::after {
+                content: '';
+                position: absolute;
+                bottom: 8px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 50px;
+                height: 50px;
+                border: 2px solid #666;
+                border-radius: 50%;
+                background: transparent;
+            }
+
+            .browser-header {
+                display: none;
+            }
+
             .browser-content {
-                padding: 20px;
+                height: 500px;
+                background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                border-radius: 20px;
+                padding: 15px;
+                overflow-y: auto;
+                overflow-x: hidden;
+                margin-top: 15px;
             }
-            
+
             .main-buttons {
-                flex-direction: row;
-                align-items: center;
-                gap: 20px;
+                flex-direction: column;
+                gap: 15px;
             }
             
             .main-btn {
-                min-width: 250px;
+                min-width: auto;
+                width: 100%;
+                padding: 12px 20px;
+                font-size: 0.9rem;
             }
             
             .content-grid {
-                grid-template-columns: 1fr 1fr;
-                grid-template-rows: 1fr 1fr;
+                grid-template-columns: 1fr;
+                gap: 15px;
             }
             
             .department-grid {
-                grid-template-columns: 1fr 1fr 1fr;
+                grid-template-columns: 1fr;
+                gap: 15px;
             }
             
             .header h1 {
-                font-size: 4rem;
+                font-size: 2.5rem;
             }
             
             .bonus-videos {
                 flex-direction: column;
+            }
+
+            .department-card {
+                padding: 15px;
+            }
+
+            .content-item {
+                padding: 15px;
+            }
+
+            .assignment-steps {
+                gap: 12px;
+            }
+
+            .step {
+                padding: 12px;
+            }
+
+            .tool-list {
+                gap: 6px;
+            }
+
+            .tool-tag {
+                font-size: 0.8rem;
+                padding: 4px 8px;
             }
         }
             
