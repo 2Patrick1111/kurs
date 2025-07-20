@@ -138,6 +138,42 @@
     font-weight: 600;
 }
 
+.premium-benefits {
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 107, 107, 0.3);
+}
+
+.premium-benefits h4 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #ff6b6b;
+    margin-bottom: 15px;
+}
+
+.benefits-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 15px 0;
+}
+
+.benefits-list li {
+    font-size: 0.95rem;
+    line-height: 1.4;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 8px;
+    padding-left: 5px;
+}
+
+.call-to-action {
+    font-weight: 600;
+    color: #ff6b6b !important;
+    font-size: 1rem;
+    margin: 0;
+    text-align: center;
+    padding: 15px 0 5px 0;
+}
+
 /* Responsive für kleinere Bildschirme */
 @media (max-width: 768px) {
     .funding-card {
