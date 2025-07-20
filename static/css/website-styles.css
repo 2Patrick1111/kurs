@@ -366,6 +366,11 @@ body {
     margin-bottom: 2rem;
 }
 
+.contact-hero .hero-subtitle {
+    font-size: 35px;
+    color: white;
+}
+
 .hero-description {
     font-size: 1rem;
     color: var(--text-secondary);
