@@ -839,6 +839,28 @@
             display: none;
         }
 
+        .department-card[onclick*="it"] .thumbnail-placeholder {
+            background: url('/static/images/it-video.png') no-repeat center center;
+            background-size: cover;
+            border: none;
+            padding: 0;
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: -moz-crisp-edges;
+            image-rendering: crisp-edges;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            will-change: transform;
+        }
+
+        .department-card[onclick*="it"] .thumbnail-placeholder span,
+        .department-card[onclick*="it"] .thumbnail-placeholder small {
+            display: none;
+        }
+
         .thumbnail-placeholder span {
             font-size: 2rem;
             display: block;
