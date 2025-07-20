@@ -3,8 +3,8 @@ from app import app
 
 @app.route('/')
 def index():
-    """Homepage route"""
-    return render_template('kontakt.html', page_title='Kontakt')
+    """Homepage route - now shows pricing page"""
+    return render_template('preise.html', page_title='AI Allstars - Preise & Pakete')
 
 @app.route('/team')
 def team():

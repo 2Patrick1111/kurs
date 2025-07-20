@@ -34,7 +34,7 @@ Preferred communication style: Simple, everyday language.
    - Imports route definitions
 
 2. **Routing System (`routes.py`)**
-   - Homepage (`/`)
+   - Homepage (`/`) - displays pricing page
    - Team page (`/team`)
    - Pricing page (`/preise`)
    - ROI Calculator (`/roi-calculator`)
@@ -108,6 +108,7 @@ Preferred communication style: Simple, everyday language.
 
 ### Pricing Page Implementation (July 2025)
 - **Added**: New pricing page (`/preise`) with four AI-PASS course packages
+- **Changed**: Homepage (`/`) now displays the pricing page as the main landing page
 - **Features**: 
   - AI-PASS Gefördert (100% state-funded, €0)
   - AI-PASS Videokurs (Self-paced video course, €995)
