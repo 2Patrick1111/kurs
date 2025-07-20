@@ -390,12 +390,6 @@ body {
     background-clip: text;
 }
 
-.contact-container {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-}
-
 .contact-info-section {
     padding: 4rem 2rem;
     display: flex;
@@ -429,14 +423,10 @@ body {
     margin-right: 1rem;
 }
 
-.contact-methods-grid {
-    width: 100%;
-    max-width: 800px;
-}
-
 .contact-method {
     position: relative;
     width: 100%;
+    max-width: 800px;
     text-align: center;
 }
 
