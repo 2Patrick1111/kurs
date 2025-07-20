@@ -223,7 +223,7 @@
 }
 
 .section-header {
-    background: #2c3e50;
+    background: linear-gradient(135deg, #667eea, #764ba2);
     color: white;
     padding: 12px 8px;
     font-weight: bold;
@@ -292,15 +292,15 @@
     margin: 1px;
 }
 
-.badge-100 { background: #e74c3c; }
-.badge-75 { background: #e67e22; }
-.badge-50 { background: #f39c12; }
-.badge-25 { background: #95a5a6; }
-.badge-60 { background: #8e44ad; }
+.badge-100 { background: linear-gradient(135deg, #667eea, #764ba2); }
+.badge-75 { background: linear-gradient(135deg, #f093fb, #f5576c); }
+.badge-50 { background: linear-gradient(135deg, #4facfe, #00f2fe); }
+.badge-25 { background: linear-gradient(135deg, #43e97b, #38f9d7); }
+.badge-60 { background: linear-gradient(135deg, #fa709a, #fee140); }
 
 .special-note {
     font-size: 0.65rem;
-    color: #ff6b6b;
+    color: #667eea;
     margin-top: 2px;
     line-height: 1.1;
 }
@@ -318,7 +318,7 @@
 }
 
 .employer-note {
-    color: #ff6b6b;
+    color: #667eea;
     font-size: 0.7rem;
     font-weight: bold;
     line-height: 1.1;
@@ -328,12 +328,13 @@
     position: absolute;
     top: -8px;
     right: 5px;
-    background: #e74c3c;
+    background: linear-gradient(135deg, #ff6b6b, #ee5a24);
     color: white;
     padding: 2px 6px;
     border-radius: 8px;
     font-size: 0.6rem;
     font-weight: bold;
+    box-shadow: 0 2px 4px rgba(255, 107, 107, 0.3);
 }
 
 .qualification-money-note {
