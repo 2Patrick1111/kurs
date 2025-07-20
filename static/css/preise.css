@@ -174,10 +174,62 @@
     padding: 15px 0 5px 0;
 }
 
+.premium-alternative {
+    max-width: 800px;
+    margin: 60px auto 0;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+}
+
+.premium-alternative h3 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #667eea;
+    margin-bottom: 30px;
+}
+
+.alternative-benefits {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 30px 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 15px;
+    text-align: left;
+}
+
+.alternative-benefits li {
+    font-size: 1.1rem;
+    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 500;
+}
+
+.alternative-cta {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #667eea;
+    margin: 0;
+    text-align: center;
+}
+
 /* Responsive für kleinere Bildschirme */
 @media (max-width: 768px) {
     .funding-card {
         grid-column: span 1;
+    }
+    
+    .alternative-benefits {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .premium-alternative {
+        padding: 30px 20px;
     }
 }
 
