@@ -36,6 +36,7 @@ Preferred communication style: Simple, everyday language.
 2. **Routing System (`routes.py`)**
    - Homepage (`/`)
    - Team page (`/team`)
+   - Pricing page (`/preise`)
    - ROI Calculator (`/roi-calculator`)
    - Contact page (`/kontakt`)
    - Legal pages (`/datenschutz`, `/impressum`)
@@ -101,4 +102,17 @@ Preferred communication style: Simple, everyday language.
 ### German Language Content
 - **Decision**: All content and navigation in German
 - **Rationale**: Target market appears to be German-speaking regions
-- **Impact**: URLs use German terms (`kontakt`, `datenschutz`, `impressum`)
+- **Impact**: URLs use German terms (`kontakt`, `datenschutz`, `impressum`, `preise`)
+
+## Recent Changes
+
+### Pricing Page Implementation (July 2025)
+- **Added**: New pricing page (`/preise`) with four AI-PASS course packages
+- **Features**: 
+  - AI-PASS Gefördert (100% state-funded, €0)
+  - AI-PASS Videokurs (Self-paced video course, €995)
+  - AI-PASS Premium (Complete program without funding, €2,495)
+  - AI-PASS Enterprise (Custom enterprise solution, on request)
+- **Design**: Modern card-based layout with hover effects and responsive design
+- **Navigation**: Added to main header, mobile menu, and footer navigation
+- **Styling**: Custom CSS with glass morphism effects and smooth animations

@@ -28,6 +28,7 @@
         </a>
         <nav class="header-nav" id="headerNav">
             <a href="{{ url_for('team') }}">Team</a>
+            <a href="{{ url_for('preise') }}">Preise</a>
             <a href="{{ url_for('roi_calculator') }}">ROI-Rechner</a>
             <a href="{{ url_for('kontakt') }}">Kontakt</a>
         </nav>
@@ -41,6 +42,7 @@
         <!-- Mobile Dropdown Menu -->
         <nav class="mobile-nav" id="mobileNav">
             <a href="{{ url_for('team') }}" class="mobile-nav-item">Team</a>
+            <a href="{{ url_for('preise') }}" class="mobile-nav-item">Preise</a>
             <a href="{{ url_for('roi_calculator') }}" class="mobile-nav-item">ROI-Rechner</a>
             <a href="{{ url_for('kontakt') }}" class="mobile-nav-item">Kontakt</a>
             <a href="{{ url_for('kontakt') }}" class="mobile-cta">AI Pass Beratung</a>
@@ -65,6 +67,7 @@
             <div class="footer-links">
                 <div class="footer-column">
                     <h4>Services</h4>
+                    <a href="{{ url_for('preise') }}">Preise & Pakete</a>
                     <a href="{{ url_for('roi_calculator') }}">KI-Potenzialanalyse</a>
                     <a href="{{ url_for('index') }}#features">AI Pass Details</a>
                     <a href="{{ url_for('appointment') }}">Strategiegespräch</a>

@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/preise.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="pricing-hero">
+    <div class="pricing-container">
+        <div class="pricing-header">
+            <h1>Entfessle die KI‑Superkräfte deines Teams</h1>
+            <p>Wähle das perfekte Package für euren Erfolg</p>
+        </div>
+
+        <div class="pricing-grid">
+            <!-- Gefördert Package -->
+            <div class="pricing-card highlight">
+                <div class="card-header">
+                    <h3 class="package-name">AI‑PASS Gefördert</h3>
+                    <p class="package-subtitle">100% staatlich gefördert</p>
+                    <div class="price">0€</div>
+                    <p class="price-note">+ 75% Lohnkostenerstattung</p>
+                </div>
+                <ul class="features">
+                    <li>5‑Wochen AI‑Intensivprogramm</li>
+                    <li>Live‑Sessions mit KI‑Experten</li>
+                    <li>Persönliches Automations‑Set‑up</li>
+                    <li>Offizielle Zertifizierung</li>
+                    <li>Durchschnittlich 6h Zeitersparnis/Woche</li>
+                    <li>Förderung nach § 82 SGB III</li>
+                </ul>
+                <a href="{{ url_for('kontakt') }}" class="cta-button">Förderung beantragen</a>
+            </div>
+
+            <!-- 995€ Package -->
+            <div class="pricing-card">
+                <div class="card-header">
+                    <h3 class="package-name">AI‑PASS Videokurs</h3>
+                    <p class="package-subtitle">Selbstständig lernen im eigenen Tempo</p>
+                    <div class="price">995€</div>
+                    <p class="price-note">einmalig</p>
+                </div>
+                <ul class="features">
+                    <li>Vollständige Videokurs‑Bibliothek</li>
+                    <li>5‑Wochen strukturierte Inhalte</li>
+                    <li>Downloadbare Praxis‑Templates</li>
+                    <li>KI‑Tool Tutorials & Anleitungen</li>
+                    <li>Schritt‑für‑Schritt Automations‑Guides</li>
+                    <li>Lebenslange Updates zu neuen KI‑Tools</li>
+                    <li>Regelmäßige Tool‑Empfehlungen</li>
+                </ul>
+                <a href="{{ url_for('kontakt') }}" class="cta-button">Videokurs kaufen</a>
+            </div>
+
+            <!-- 2495€ Package -->
+            <div class="pricing-card featured discount">
+                <div class="card-header">
+                    <h3 class="package-name">AI‑PASS Premium</h3>
+                    <p class="package-subtitle">Das komplette Programm ohne Förderung</p>
+                    <div class="price">2.495€</div>
+                    <p class="price-note">pro Teilnehmer</p>
+                </div>
+                <ul class="features">
+                    <li>5‑Wochen AI‑Intensivprogramm</li>
+                    <li>Live‑Sessions mit KI‑Experten</li>
+                    <li>Persönliches Automations‑Set‑up</li>
+                    <li>Offizielle Zertifizierung</li>
+                    <li>Durchschnittlich 6h Zeitersparnis/Woche</li>
+                    <li>Sofort verfügbar ohne Förderantrag</li>
+                </ul>
+                <a href="{{ url_for('kontakt') }}" class="cta-button">Premium buchen</a>
+            </div>
+
+            <!-- Enterprise Package -->
+            <div class="pricing-card">
+                <div class="card-header">
+                    <h3 class="package-name">AI‑PASS Enterprise</h3>
+                    <p class="package-subtitle">Individuelle Unternehmenslösung</p>
+                    <div class="price">Auf Anfrage</div>
+                    <p class="price-note">maßgeschneidert</p>
+                </div>
+                <ul class="features">
+                    <li>Individuelle Beratung für Ihr Unternehmen</li>
+                    <li>Angepasste Lösungen nach Bedarf</li>
+                    <li>Flexible Teilnehmerzahl</li>
+                    <li>Spezielle Konditionen verfügbar</li>
+                    <li>Persönliches Beratungsgespräch</li>
+                    <li>Maßgeschneiderte Roadmap</li>
+                    <li>Langfristige Partnerschaft möglich</li>
+                </ul>
+                <a href="{{ url_for('kontakt') }}" class="cta-button secondary">Kostenlose Beratung</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_scripts %}
+<script src="{{ url_for('static', filename='js/preise.js') }}"></script>
+{% endblock %}

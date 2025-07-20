@@ -31,6 +31,11 @@ def impressum():
     """Imprint page route"""
     return render_template('impressum.html', page_title='Impressum')
 
+@app.route('/preise')
+def preise():
+    """Pricing page route"""
+    return render_template('preise.html', page_title='Preise & Pakete')
+
 @app.route('/appointment')
 def appointment():
     """Appointment booking redirect to contact"""
