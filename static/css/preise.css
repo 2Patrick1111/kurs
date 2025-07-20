@@ -87,6 +87,22 @@
     box-shadow: 0 20px 40px rgba(102, 126, 234, 0.2);
 }
 
+.pricing-card.discount::after {
+    content: "-25%";
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 15px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    transform: rotate(12deg);
+    box-shadow: 0 3px 8px rgba(255, 107, 107, 0.3);
+    z-index: 2;
+}
+
 
 
 
