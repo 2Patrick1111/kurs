@@ -75,7 +75,7 @@
         .macbook-keyboard {
             width: 100%;
             max-width: 900px;
-            margin-top: -40px;
+            margin-top: -10px;
             position: relative;
             perspective: 1000px;
             transform: scale(0.85);
@@ -232,13 +232,16 @@
             }
 
             .browser-content {
-                min-height: 500px;
+                height: 500px;
+                max-height: 500px;
                 padding: 25px;
+                overflow-y: auto;
+                overflow-x: hidden;
             }
 
             .macbook-keyboard {
                 transform: scale(0.75);
-                margin-top: -50px;
+                margin-top: -20px;
             }
         }
 
@@ -298,9 +301,12 @@
 
         .browser-content {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 600px;
+            height: 600px;
+            max-height: 600px;
             padding: 30px;
             position: relative;
+            overflow-y: auto;
+            overflow-x: hidden;
         }
 
         .header {
@@ -364,14 +370,36 @@
             backdrop-filter: blur(20px);
             border-radius: 15px;
             padding: 30px;
-            min-height: 500px;
+            height: calc(100% - 60px);
+            max-height: calc(100% - 60px);
             border: 1px solid rgba(255,255,255,0.1);
             display: none;
             animation: fadeIn 0.5s ease;
+            overflow-y: auto;
+            overflow-x: hidden;
         }
 
         .content-area.active {
             display: block;
+        }
+
+        /* Custom scrollbar for content areas */
+        .content-area::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .content-area::-webkit-scrollbar-track {
+            background: rgba(255,255,255,0.1);
+            border-radius: 4px;
+        }
+
+        .content-area::-webkit-scrollbar-thumb {
+            background: rgba(255,255,255,0.3);
+            border-radius: 4px;
+        }
+
+        .content-area::-webkit-scrollbar-thumb:hover {
+            background: rgba(255,255,255,0.5);
         }
 
         @keyframes fadeIn {

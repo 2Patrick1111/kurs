@@ -115,10 +115,16 @@ Preferred communication style: Simple, everyday language.
   - Department-specific content areas (Marketing, HR, Support, Finance, IT, Recht)
   - Video players, document previews, quiz components, and assignment sections
   - Detailed course material previews with tool recommendations and practice exercises
+  - 3D perspective MacBook keyboard below browser for realistic computer experience
 - **Design**: Glass morphism effects with gradient backgrounds and interactive elements
 - **Integration**: Uses existing Flask template system with base.html inheritance
 - **Navigation**: Maintains original header, footer, and background styling
-- **Interactivity**: JavaScript-powered content switching and interactive elements
+- **Interactivity**: JavaScript-powered content switching with fixed browser dimensions and internal scrolling
+- **Computer Mockup**: 
+  - 3D rotated MacBook keyboard (25° perspective) with realistic keys and trackpad
+  - Fixed browser content height (600px desktop, 500px mobile) with internal scrolling
+  - Scaled design (85% desktop, 75% mobile) for optimal page integration
+  - Content switching maintains browser size with smooth transitions
 
 ### Previous Pricing Page Implementation (July 2025)
 - **Available**: Pricing page accessible at `/preise` with four AI-PASS course packages
