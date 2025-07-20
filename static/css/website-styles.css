@@ -330,10 +330,10 @@ body {
 
 @keyframes sparkle {
     0% {
-        transform: translateX(0) translateY(0);
+        transform: translateX(-100%) translateY(0);
     }
     100% {
-        transform: translateX(-200px) translateY(-200px);
+        transform: translateX(100%) translateY(0);
     }
 }
 
