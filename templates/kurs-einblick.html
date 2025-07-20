@@ -241,16 +241,8 @@
             border-radius: 2px;
         }
 
-        .desktop-only {
-            display: block;
-        }
-
         @media (max-width: 768px) {
             .browser-container {
-                display: none !important;
-            }
-
-            .desktop-only {
                 display: none !important;
             }
 
@@ -1231,62 +1223,19 @@
 </section>
 
 <div class="kurs-einblick-container">
-    <!-- Desktop Browser Container -->
-    <div class="browser-container">
-        <div class="macbook-keyboard">
-            <div class="keyboard-base">
-                <div class="trackpad"></div>
-                <div class="key-row">
-                    <div class="key">Q</div>
-                    <div class="key">W</div>
-                    <div class="key">E</div>
-                    <div class="key">R</div>
-                    <div class="key">T</div>
-                    <div class="key">Y</div>
-                    <div class="key">U</div>
-                    <div class="key">I</div>
-                    <div class="key">O</div>
-                    <div class="key">P</div>
-                </div>
-                <div class="key-row">
-                    <div class="key">A</div>
-                    <div class="key">S</div>
-                    <div class="key">D</div>
-                    <div class="key">F</div>
-                    <div class="key">G</div>
-                    <div class="key">H</div>
-                    <div class="key">J</div>
-                    <div class="key">K</div>
-                    <div class="key">L</div>
-                </div>
-                <div class="key-row">
-                    <div class="key">Z</div>
-                    <div class="key">X</div>
-                    <div class="key">C</div>
-                    <div class="key">V</div>
-                    <div class="key">B</div>
-                    <div class="key">N</div>
-                    <div class="key">M</div>
-                </div>
-                <div class="key-row">
-                    <div class="key space-bar"></div>
-                </div>
+    <div class="browser-window">
+        <!-- macOS Browser Header -->
+        <div class="browser-header">
+            <div class="traffic-lights">
+                <div class="traffic-light close"></div>
+                <div class="traffic-light minimize"></div>
+                <div class="traffic-light maximize"></div>
             </div>
+            <div class="address-bar">🔒 ai-allstars.com/kurs-einblick</div>
         </div>
-        
-        <div class="browser-window">
-            <div class="browser-header">
-                <div class="traffic-lights">
-                    <div class="light red"></div>
-                    <div class="light yellow"></div>
-                    <div class="light green"></div>
-                </div>
-                <div class="address-bar">
-                    <span>🔒 ai-allstars.com/kurs-einblick</span>
-                </div>
-            </div>
-            
-            <div class="browser-content" id="browserContent">
+
+        <!-- Browser Content -->
+        <div class="browser-content">
             <div class="logo-placeholder">
                 <div class="logo-box">
                     <img src="{{ url_for('static', filename='allstars-logo-white.png') }}" alt="AI Allstars" style="max-width: 200px; height: auto; filter: brightness(0) invert(1);">
@@ -1817,7 +1766,6 @@
                     </div>
                 </div>
             </div>
-            </div>
         </div>
     </div>
 
@@ -1835,16 +1783,21 @@
             document.getElementById('mainMenu').style.display = 'none';
             
             // Hide all content areas
-            document.querySelectorAll('.content-area').forEach(area => {
-                area.classList.remove('active');
-            });
+            const areas = document.querySelectorAll('.content-area');
+            areas.forEach(area => area.classList.remove('active'));
             
             // Show selected content
-            document.getElementById(type + 'Content').classList.add('active');
+            document.getElementById(type).classList.add('active');
             
-            // Update phone content for mobile
+            // Update both browser and phone content
+            const contentElement = document.getElementById(type);
+            const browserContent = document.getElementById('browserContent');
             const phoneContent = document.getElementById('phoneContent');
-            const contentElement = document.getElementById(type + 'Content');
+            
+            if (browserContent && contentElement) {
+                browserContent.innerHTML = contentElement.innerHTML;
+            }
+            
             if (phoneContent && contentElement) {
                 phoneContent.innerHTML = contentElement.innerHTML;
             }
@@ -1858,18 +1811,11 @@
             document.querySelectorAll('.content-area').forEach(area => {
                 area.classList.remove('active');
             });
-            
-            // Update phone content for mobile
-            const phoneContent = document.getElementById('phoneContent');
-            const mainMenu = document.getElementById('mainMenu');
-            if (phoneContent && mainMenu) {
-                phoneContent.innerHTML = mainMenu.innerHTML;
-            }
         }
 
         function showDepartment(department) {
             // Hide praxis overview
-            document.getElementById('praxisContent').classList.remove('active');
+            document.getElementById('praxis').classList.remove('active');
             
             // Hide all department details
             document.querySelectorAll('[id$="Detail"]').forEach(detail => {
@@ -1877,12 +1823,18 @@
             });
             
             // Show selected department
-            document.getElementById(department + 'Detail').classList.add('active');
-            
-            // Update phone content for mobile
-            const phoneContent = document.getElementById('phoneContent');
             const departmentElement = document.getElementById(department + 'Detail');
-            if (phoneContent && departmentElement) {
+            departmentElement.classList.add('active');
+            
+            // Update both browser and phone content
+            const browserContent = document.getElementById('browserContent');
+            const phoneContent = document.getElementById('phoneContent');
+            
+            if (browserContent) {
+                browserContent.innerHTML = departmentElement.innerHTML;
+            }
+            
+            if (phoneContent) {
                 phoneContent.innerHTML = departmentElement.innerHTML;
             }
         }
@@ -1936,17 +1888,130 @@
         });
 
         // Initialize content on page load
-        document.addEventListener('DOMContentLoaded', function() {
-            // Check if we're on mobile and need to sync content
-            if (window.innerWidth <= 768) {
-                const phoneContent = document.getElementById('phoneContent');
-                const mainMenu = document.getElementById('mainMenu');
-                if (phoneContent && mainMenu) {
-                    phoneContent.innerHTML = mainMenu.innerHTML;
-                }
+        window.addEventListener('load', function() {
+            const mainMenu = document.getElementById('mainMenu');
+            const browserContent = document.getElementById('browserContent');
+            const phoneContent = document.getElementById('phoneContent');
+            
+            if (browserContent && mainMenu) {
+                browserContent.innerHTML = mainMenu.innerHTML;
+            }
+            
+            if (phoneContent && mainMenu) {
+                phoneContent.innerHTML = mainMenu.innerHTML;
             }
         });
     </script>
     
-
+    <!-- MacBook Keyboard - 3D Perspective View -->
+    <div class="macbook-keyboard">
+        <div class="keyboard-base">
+            <div class="keyboard-rows">
+                <!-- Row 1: Function keys (smaller) -->
+                <div class="keyboard-row">
+                    <div class="key" style="width: 30px; height: 22px; font-size: 8px;">esc</div>
+                    <div class="key" style="width: 30px; height: 22px; font-size: 8px;">F1</div>
+                    <div class="key" style="width: 30px; height: 22px; font-size: 8px;">F2</div>
+                    <div class="key" style="width: 30px; height: 22px; font-size: 8px;">F3</div>
+                    <div class="key" style="width: 30px; height: 22px; font-size: 8px;">F4</div>
+                    <div class="key" style="width: 30px; height: 22px; font-size: 8px;">F5</div>
+                    <div class="key" style="width: 30px; height: 22px; font-size: 8px;">F6</div>
+                    <div class="key" style="width: 30px; height: 22px; font-size: 8px;">F7</div>
+                    <div class="key" style="width: 30px; height: 22px; font-size: 8px;">F8</div>
+                    <div class="key" style="width: 30px; height: 22px; font-size: 8px;">F9</div>
+                    <div class="key" style="width: 30px; height: 22px; font-size: 8px;">F10</div>
+                    <div class="key" style="width: 30px; height: 22px; font-size: 8px;">F11</div>
+                    <div class="key" style="width: 30px; height: 22px; font-size: 8px;">F12</div>
+                </div>
+                
+                <!-- Row 2: Numbers -->
+                <div class="keyboard-row">
+                    <div class="key">`</div>
+                    <div class="key">1</div>
+                    <div class="key">2</div>
+                    <div class="key">3</div>
+                    <div class="key">4</div>
+                    <div class="key">5</div>
+                    <div class="key">6</div>
+                    <div class="key">7</div>
+                    <div class="key">8</div>
+                    <div class="key">9</div>
+                    <div class="key">0</div>
+                    <div class="key">-</div>
+                    <div class="key">=</div>
+                    <div class="key backspace">⌫</div>
+                </div>
+                
+                <!-- Row 3: QWERTY -->
+                <div class="keyboard-row">
+                    <div class="key tab">tab</div>
+                    <div class="key">Q</div>
+                    <div class="key">W</div>
+                    <div class="key">E</div>
+                    <div class="key">R</div>
+                    <div class="key">T</div>
+                    <div class="key">Y</div>
+                    <div class="key">U</div>
+                    <div class="key">I</div>
+                    <div class="key">O</div>
+                    <div class="key">P</div>
+                    <div class="key">[</div>
+                    <div class="key">]</div>
+                    <div class="key">\</div>
+                </div>
+                
+                <!-- Row 4: ASDF -->
+                <div class="keyboard-row">
+                    <div class="key" style="width: 52px;">caps</div>
+                    <div class="key">A</div>
+                    <div class="key">S</div>
+                    <div class="key">D</div>
+                    <div class="key">F</div>
+                    <div class="key">G</div>
+                    <div class="key">H</div>
+                    <div class="key">J</div>
+                    <div class="key">K</div>
+                    <div class="key">L</div>
+                    <div class="key">;</div>
+                    <div class="key">'</div>
+                    <div class="key enter">⏎</div>
+                </div>
+                
+                <!-- Row 5: ZXCV -->
+                <div class="keyboard-row">
+                    <div class="key shift">shift</div>
+                    <div class="key">Z</div>
+                    <div class="key">X</div>
+                    <div class="key">C</div>
+                    <div class="key">V</div>
+                    <div class="key">B</div>
+                    <div class="key">N</div>
+                    <div class="key">M</div>
+                    <div class="key">,</div>
+                    <div class="key">.</div>
+                    <div class="key">/</div>
+                    <div class="key shift">shift</div>
+                </div>
+                
+                <!-- Row 6: Bottom row -->
+                <div class="keyboard-row">
+                    <div class="key" style="width: 35px;">fn</div>
+                    <div class="key" style="width: 42px;">ctrl</div>
+                    <div class="key" style="width: 42px;">alt</div>
+                    <div class="key" style="width: 48px;">⌘</div>
+                    <div class="key space"></div>
+                    <div class="key" style="width: 48px;">⌘</div>
+                    <div class="key" style="width: 42px;">alt</div>
+                    <div class="key">←</div>
+                    <div class="key">↑</div>
+                    <div class="key">↓</div>
+                    <div class="key">→</div>
+                </div>
+            </div>
+            
+            <!-- Trackpad -->
+            <div class="trackpad"></div>
+        </div>
+    </div>
+</div>
 {% endblock %}
