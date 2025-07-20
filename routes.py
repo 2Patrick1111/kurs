@@ -3,8 +3,8 @@ from app import app
 
 @app.route('/')
 def index():
-    """Homepage route - now shows pricing page"""
-    return render_template('preise.html', page_title='AI Allstars - Preise & Pakete')
+    """Homepage route - shows course preview page"""
+    return render_template('kurs-einblick.html', page_title='AI Allstars - Kurseinblick')
 
 @app.route('/team')
 def team():
@@ -40,3 +40,8 @@ def preise():
 def appointment():
     """Appointment booking redirect to contact"""
     return render_template('kontakt.html', page_title='Strategiegespräch')
+
+@app.route('/kurs-einblick')
+def kurs_einblick():
+    """Course preview page route"""
+    return render_template('kurs-einblick.html', page_title='AI Allstars - Kurseinblick')
