@@ -1,131 +1,144 @@
 {% extends "base.html" %}
 
 {% block content %}
-<section class="hero" style="margin-top: 120px;">
-    <div class="hero-content">
-        <h1>Kontakt</h1>
-        <p class="hero-subtitle">Bereit für Ihre KI-Transformation?</p>
-        <p class="hero-description">Kontaktieren Sie uns für eine kostenlose Erstberatung. Unsere Experten entwickeln gemeinsam mit Ihnen die optimale KI-Strategie für Ihr Unternehmen.</p>
+<!-- Contact Hero Section -->
+<section class="contact-hero hero" style="margin-top: 120px;">
+    <div class="contact-hero-content">
+        <h1 class="hero-title-animate">Sprechen Sie mit unseren <span class="hero-gradient-text">KI-Experten</span></h1>
+        <p class="hero-subtitle subtitle-animate">Lassen Sie uns gemeinsam Ihr KI-Potenzial entdecken</p>
+        <p class="hero-description description-animate">
+            Erhalten Sie eine individuelle Beratung von unseren KI-Experten und entdecken Sie, 
+            wie Künstliche Intelligenz Ihr Unternehmen transformieren kann.
+        </p>
     </div>
 </section>
 
-<section class="contact-section">
-    <div class="container">
-        <div class="contact-container">
-            <div class="contact-form">
-                <h3>Nachricht senden</h3>
-                <form id="contactForm">
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="firstName">Vorname*</label>
-                            <input type="text" id="firstName" name="firstName" required>
+<!-- Contact Information Section -->
+<section class="contact-info-section">
+    <div class="contact-container">
+        <h2 class="contact-info-title">
+            <i class="fas fa-comments gradient-text"></i>
+            Kontaktiere uns direkt
+        </h2>
+        
+        <div class="contact-methods-grid">
+            <div class="contact-method glass-container">
+                <div class="contact-icon">
+                    <i class="fas fa-phone"></i>
+                </div>
+                <div class="whatsapp-icon gradient-icon-square">
+                    <i class="fab fa-whatsapp"></i>
+                </div>
+                <div class="contact-details">
+                    <h3 class="contact-main-heading">
+                        <span>Telefon / WhatsApp</span>
+                    </h3>
+                    
+                    <div class="contact-persons-grid">
+                        <div class="contact-person">
+                            <p class="contact-name"><strong>Antonio Eichler</strong></p>
+                            <p class="contact-title">KI-Strategieberater & Kundenbetreuung</p>
+                            <p class="contact-number">
+                                <a href="tel:+491624024929">+49 162 4024929</a>
+                                <span class="contact-method-hint">(Telefon & WhatsApp)</span>
+                            </p>
                         </div>
-                        <div class="form-group">
-                            <label for="lastName">Nachname*</label>
-                            <input type="text" id="lastName" name="lastName" required>
+                        
+                        <div class="contact-person">
+                            <p class="contact-name"><strong>Dr. Marko Müller</strong></p>
+                            <p class="contact-title">Partnerschaften & Geschäftsentwicklung</p>
+                            <p class="contact-number">
+                                <a href="tel:+491796842814">+49 179 6842814</a>
+                                <span class="contact-method-hint">(Telefon & WhatsApp)</span>
+                            </p>
                         </div>
                     </div>
                     
+                    <hr class="contact-divider">
+                    <div class="contact-email-section">
+                        <h3>
+                            <span class="gradient-icon-square" style="margin-right: 12px;">
+                                <i class="fas fa-envelope"></i>
+                            </span>
+                            E-Mail
+                        </h3>
+                        <p class="contact-number">
+                            <a href="mailto:ki-kurs@ai-allstars.com">ki-kurs@ai-allstars.com</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Form Section -->
+<section class="contact-form-section">
+    <div class="contact-container">
+        <div class="contact-form-container glass-container">
+            <h2 class="contact-form-title">
+                <i class="fas fa-paper-plane gradient-text"></i>
+                Nachricht senden
+            </h2>
+            
+            <form action="{{ url_for('kontakt') }}" method="POST" class="contact-form" id="contactForm">
+                <div class="form-row">
                     <div class="form-group">
-                        <label for="company">Unternehmen</label>
-                        <input type="text" id="company" name="company">
+                        <label for="name" class="form-label">
+                            <i class="fas fa-user"></i>
+                            Name *
+                        </label>
+                        <input type="text" id="name" name="name" class="form-input" required>
                     </div>
-                    
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="email">E-Mail*</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="phone">Telefon</label>
-                            <input type="tel" id="phone" name="phone">
-                        </div>
-                    </div>
-                    
+                </div>
+                
+                <div class="form-row">
                     <div class="form-group">
-                        <label for="interest">Interessensbereich</label>
-                        <select id="interest" name="interest">
-                            <option value="">Bitte wählen Sie...</option>
-                            <option value="ai-strategy">KI-Strategieberatung</option>
-                            <option value="roi-analysis">ROI-Analyse</option>
-                            <option value="implementation">KI-Implementierung</option>
-                            <option value="training">Team-Training</option>
-                            <option value="other">Sonstiges</option>
-                        </select>
+                        <label for="email" class="form-label">
+                            <i class="fas fa-envelope"></i>
+                            E-Mail *
+                        </label>
+                        <input type="email" id="email" name="email" class="form-input" required>
                     </div>
-                    
+                </div>
+                
+                <div class="form-row">
                     <div class="form-group">
-                        <label for="message">Nachricht*</label>
-                        <textarea id="message" name="message" rows="5" placeholder="Beschreiben Sie kurz Ihr Anliegen oder Ihre Fragen..." required></textarea>
+                        <label for="company" class="form-label">
+                            <i class="fas fa-building"></i>
+                            Unternehmen
+                        </label>
+                        <input type="text" id="company" name="company" class="form-input">
                     </div>
-                    
-                    <div class="form-group checkbox-group">
-                        <input type="checkbox" id="privacy" name="privacy" required>
-                        <label for="privacy">Ich habe die <a href="{{ url_for('datenschutz') }}">Datenschutzerklärung</a> gelesen und akzeptiere diese.*</label>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="phone" class="form-label">
+                            <i class="fas fa-phone"></i>
+                            Telefon *
+                        </label>
+                        <input type="tel" id="phone" name="phone" class="form-input" required>
                     </div>
-                    
-                    <button type="submit" class="submit-btn">
-                        <i class="fas fa-paper-plane"></i>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="message" class="form-label">
+                            <i class="fas fa-comment"></i>
+                            Nachricht *
+                        </label>
+                        <textarea id="message" name="message" class="form-input form-textarea" rows="6" required placeholder="Erzählen Sie uns von Ihrem Projekt oder Ihren KI-Zielen..."></textarea>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <button type="submit" class="form-submit-btn">
+                        <i class="fas fa-rocket"></i>
                         Nachricht senden
                     </button>
-                </form>
-            </div>
-            
-            <div class="contact-info">
-                <h3>Kontaktinformation</h3>
-                
-                <div class="info-card">
-                    <div class="info-icon">
-                        <i class="fas fa-map-marker-alt"></i>
-                    </div>
-                    <div class="info-content">
-                        <h4>Adresse</h4>
-                        <p>AI Allstars GmbH<br>
-                        Innovation Street 123<br>
-                        10115 Berlin, Deutschland</p>
-                    </div>
                 </div>
-                
-                <div class="info-card">
-                    <div class="info-icon">
-                        <i class="fas fa-phone"></i>
-                    </div>
-                    <div class="info-content">
-                        <h4>Telefon</h4>
-                        <p>+49 (0)30 12345678</p>
-                    </div>
-                </div>
-                
-                <div class="info-card">
-                    <div class="info-icon">
-                        <i class="fas fa-envelope"></i>
-                    </div>
-                    <div class="info-content">
-                        <h4>E-Mail</h4>
-                        <p>info@ai-allstars.de</p>
-                    </div>
-                </div>
-                
-                <div class="info-card">
-                    <div class="info-icon">
-                        <i class="fas fa-clock"></i>
-                    </div>
-                    <div class="info-content">
-                        <h4>Öffnungszeiten</h4>
-                        <p>Mo-Fr: 09:00 - 18:00 Uhr<br>
-                        Sa-So: Termine nach Vereinbarung</p>
-                    </div>
-                </div>
-                
-                <div class="cta-section">
-                    <h4>Schnelle Terminbuchung</h4>
-                    <p>Buchen Sie direkt einen kostenlosen 30-minütigen Strategietermin mit unseren KI-Experten.</p>
-                    <a href="{{ url_for('roi_calculator') }}" class="cta-button secondary">
-                        <i class="fas fa-calendar-alt"></i>
-                        Termin buchen
-                    </a>
-                </div>
-            </div>
+            </form>
         </div>
     </div>
 </section>
