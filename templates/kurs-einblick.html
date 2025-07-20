@@ -458,7 +458,7 @@
         }
 
         .video-player {
-            background: #000;
+            background: #000 url('/static/images/hero-team-image.png') center/cover;
             border-radius: 8px;
             aspect-ratio: 16/9;
             display: flex;
@@ -470,6 +470,17 @@
             position: relative;
             overflow: hidden;
             box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+        
+        .video-player::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.3);
+            z-index: 1;
         }
 
         .play-btn {
@@ -485,6 +496,8 @@
             transition: all 0.3s ease;
             border: 1px solid rgba(255,255,255,0.2);
             color: #ffffff;
+            position: relative;
+            z-index: 2;
         }
 
         .play-btn:hover {
