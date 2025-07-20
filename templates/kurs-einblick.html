@@ -1417,10 +1417,18 @@
                                 <feMergeNode in="coloredBlur"/>
                                 <feMergeNode in="SourceGraphic"/>
                             </feMerge>
+                            <animate attributeName="stdDeviation" values="4;8;4" dur="2s" repeatCount="indefinite"/>
+                        </filter>
+                        <filter id="pulse" x="-50%" y="-50%" width="200%" height="200%">
+                            <feDropShadow dx="0" dy="0" stdDeviation="6" flood-color="#ff0000" flood-opacity="0.8"/>
+                            <animate attributeName="stdDeviation" values="3;8;3" dur="1.5s" repeatCount="indefinite"/>
                         </filter>
                     </defs>
                     <path d="M 200 10 Q 250 100 300 420" stroke="#ff0000" stroke-width="4" 
-                          fill="none" marker-end="url(#arrowhead)" filter="url(#glow)" />
+                          fill="none" marker-end="url(#arrowhead)" filter="url(#glow) url(#pulse)">
+                        <animate attributeName="stroke-width" values="4;6;4" dur="1.8s" repeatCount="indefinite"/>
+                        <animate attributeName="opacity" values="0.9;1;0.9" dur="2.2s" repeatCount="indefinite"/>
+                    </path>
                 </svg>
             </div>
 
