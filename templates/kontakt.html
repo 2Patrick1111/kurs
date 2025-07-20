@@ -23,56 +23,125 @@
         
         <div class="contact-methods-grid">
             <div class="contact-method glass-container">
-                <!-- Name Feld -->
-                <div class="form-group">
-                    <label for="name" class="form-label">
-                        <i class="fas fa-user"></i>
-                        Name *
-                    </label>
-                    <input type="text" id="name" name="name" class="form-input" required>
+                <div class="contact-icon">
+                    <i class="fas fa-phone"></i>
                 </div>
-
-                <!-- E-Mail Feld -->
-                <div class="form-group">
-                    <label for="email" class="form-label">
-                        <i class="fas fa-envelope"></i>
-                        E-Mail *
-                    </label>
-                    <input type="email" id="email" name="email" class="form-input" required>
+                <div class="whatsapp-icon gradient-icon-square">
+                    <i class="fab fa-whatsapp"></i>
                 </div>
-
-                <!-- Unternehmen Feld -->
-                <div class="form-group">
-                    <label for="company" class="form-label">
-                        <i class="fas fa-building"></i>
-                        Unternehmen
-                    </label>
-                    <input type="text" id="company" name="company" class="form-input">
-                </div>
-
-                <!-- Telefon Feld -->
-                <div class="form-group">
-                    <label for="phone" class="form-label">
-                        <i class="fas fa-phone"></i>
-                        Telefon *
-                    </label>
-                    <input type="tel" id="phone" name="phone" class="form-input" required>
-                </div>
-
-                <!-- Nachricht Feld -->
-                <div class="form-group">
-                    <label for="message" class="form-label">
-                        <i class="fas fa-comment"></i>
-                        Nachricht *
-                    </label>
-                    <textarea id="message" name="message" class="form-input form-textarea" rows="6" required placeholder="Erzählen Sie uns von Ihrem Projekt oder Ihren KI-Zielen..."></textarea>
+                <div class="contact-details">
+                    <h3 class="contact-main-heading">
+                        <span>Telefon / WhatsApp</span>
+                    </h3>
+                    
+                    <div class="contact-persons-grid">
+                        <div class="contact-person">
+                            <p class="contact-name"><strong>Antonio Eichler</strong></p>
+                            <p class="contact-title">KI-Strategieberater & Kundenbetreuung</p>
+                            <p class="contact-number">
+                                <a href="tel:+491624024929">+49 162 4024929</a>
+                                <span class="contact-method-hint">(Telefon & WhatsApp)</span>
+                            </p>
+                        </div>
+                        
+                        <div class="contact-person">
+                            <p class="contact-name"><strong>Dr. Marko Müller</strong></p>
+                            <p class="contact-title">Partnerschaften & Geschäftsentwicklung</p>
+                            <p class="contact-number">
+                                <a href="tel:+491796842814">+49 179 6842814</a>
+                                <span class="contact-method-hint">(Telefon & WhatsApp)</span>
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <hr class="contact-divider">
+                    <div class="contact-email-section">
+                        <h3>
+                            <span class="gradient-icon-square" style="margin-right: 12px;">
+                                <i class="fas fa-envelope"></i>
+                            </span>
+                            E-Mail
+                        </h3>
+                        <p class="contact-number">
+                            <a href="mailto:ki-kurs@ai-allstars.com">ki-kurs@ai-allstars.com</a>
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-
+<!-- Contact Form Section -->
+<section class="contact-form-section">
+    <div class="contact-container">
+        <div class="contact-form-container glass-container">
+            <h2 class="contact-form-title">
+                <i class="fas fa-paper-plane gradient-text"></i>
+                Nachricht senden
+            </h2>
+            
+            <form action="{{ url_for('kontakt') }}" method="POST" class="contact-form" id="contactForm">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name" class="form-label">
+                            <i class="fas fa-user"></i>
+                            Name *
+                        </label>
+                        <input type="text" id="name" name="name" class="form-input" required>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="email" class="form-label">
+                            <i class="fas fa-envelope"></i>
+                            E-Mail *
+                        </label>
+                        <input type="email" id="email" name="email" class="form-input" required>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="company" class="form-label">
+                            <i class="fas fa-building"></i>
+                            Unternehmen
+                        </label>
+                        <input type="text" id="company" name="company" class="form-input">
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="phone" class="form-label">
+                            <i class="fas fa-phone"></i>
+                            Telefon *
+                        </label>
+                        <input type="tel" id="phone" name="phone" class="form-input" required>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="message" class="form-label">
+                            <i class="fas fa-comment"></i>
+                            Nachricht *
+                        </label>
+                        <textarea id="message" name="message" class="form-input form-textarea" rows="6" required placeholder="Erzählen Sie uns von Ihrem Projekt oder Ihren KI-Zielen..."></textarea>
+                    </div>
+                </div>
+                
+                <div class="form-row">
+                    <button type="submit" class="form-submit-btn">
+                        <i class="fas fa-rocket"></i>
+                        Nachricht senden
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
 {% endblock %}
 
 {% block extra_head %}
