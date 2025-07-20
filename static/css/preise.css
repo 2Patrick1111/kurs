@@ -103,39 +103,37 @@
     z-index: 2;
 }
 
-.funding-info {
-    max-width: 800px;
-    margin: 60px auto 0;
-    padding: 30px;
-    background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(20px);
-    border-radius: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    color: white;
-    text-align: left;
+.funding-card {
+    background: rgba(255, 107, 107, 0.1);
+    border: 2px solid #ff6b6b;
+    box-shadow: 0 20px 40px rgba(255, 107, 107, 0.2);
 }
 
-.funding-info h3 {
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin-bottom: 20px;
-    color: #667eea;
-    text-align: center;
+.funding-card .package-name {
+    color: #ff6b6b !important;
 }
 
-.funding-info p {
-    font-size: 1rem;
-    line-height: 1.6;
-    margin-bottom: 15px;
+.funding-card .package-subtitle {
+    color: #ff6b6b !important;
+    font-weight: 600;
+}
+
+.funding-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.funding-content p {
+    font-size: 0.95rem;
+    line-height: 1.5;
     color: rgba(255, 255, 255, 0.9);
+    margin: 0;
 }
 
-.funding-info p:last-child {
-    margin-bottom: 0;
-}
-
-.funding-info strong {
-    color: #667eea;
+.funding-content strong {
+    color: #ff6b6b;
     font-weight: 600;
 }
 
