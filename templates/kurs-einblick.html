@@ -71,20 +71,24 @@
             min-height: 80vh;
         }
 
-        /* MacBook Keyboard Styles */
+        /* MacBook Keyboard Styles - 3D Perspective */
         .macbook-keyboard {
             width: 100%;
             max-width: 1200px;
-            margin-top: -10px;
+            margin-top: -15px;
             position: relative;
+            perspective: 1000px;
         }
 
         .keyboard-base {
             background: linear-gradient(135deg, #e8e8e8 0%, #d0d0d0 100%);
-            border-radius: 0 0 15px 15px;
-            padding: 20px 30px 30px 30px;
+            border-radius: 0 0 25px 25px;
+            padding: 25px 40px 40px 40px;
+            transform: rotateX(25deg);
+            transform-origin: center top;
             box-shadow: 
-                0 10px 30px rgba(0,0,0,0.15),
+                0 25px 50px rgba(0,0,0,0.2),
+                0 5px 15px rgba(0,0,0,0.1),
                 inset 0 2px 0 rgba(255,255,255,0.3),
                 inset 0 -2px 0 rgba(0,0,0,0.1);
         }
@@ -92,91 +96,83 @@
         .keyboard-rows {
             display: flex;
             flex-direction: column;
-            gap: 8px;
-            margin-bottom: 15px;
+            gap: 6px;
+            margin-bottom: 20px;
         }
 
         .keyboard-row {
             display: flex;
             justify-content: center;
-            gap: 4px;
+            gap: 3px;
         }
 
         .key {
             background: linear-gradient(135deg, #f8f8f8 0%, #e0e0e0 100%);
             border: 1px solid #c0c0c0;
-            border-radius: 3px;
-            width: 35px;
-            height: 35px;
+            border-radius: 2px;
+            width: 32px;
+            height: 30px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 11px;
+            font-size: 10px;
             font-weight: 500;
             color: #333;
             box-shadow: 
-                0 1px 2px rgba(0,0,0,0.1),
+                0 1px 3px rgba(0,0,0,0.15),
                 inset 0 1px 0 rgba(255,255,255,0.8);
             transition: all 0.1s ease;
-            cursor: pointer;
         }
 
         .key:hover {
             background: linear-gradient(135deg, #f0f0f0 0%, #d8d8d8 100%);
-            transform: translateY(0.5px);
-        }
-
-        .key:active {
-            background: linear-gradient(135deg, #e8e8e8 0%, #d0d0d0 100%);
-            transform: translateY(1px);
-            box-shadow: 
-                0 0 1px rgba(0,0,0,0.2),
-                inset 0 1px 0 rgba(255,255,255,0.6);
+            transform: translateY(-0.5px);
         }
 
         .key.space {
-            width: 200px;
+            width: 180px;
         }
 
         .key.shift {
-            width: 60px;
+            width: 55px;
         }
 
         .key.tab {
-            width: 50px;
+            width: 45px;
         }
 
         .key.enter {
-            width: 65px;
+            width: 58px;
         }
 
         .key.backspace {
-            width: 55px;
+            width: 50px;
         }
 
         .trackpad {
             background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
             border: 1px solid #d0d0d0;
-            border-radius: 8px;
-            width: 120px;
-            height: 80px;
+            border-radius: 10px;
+            width: 140px;
+            height: 90px;
             margin: 0 auto;
             box-shadow: 
-                inset 0 1px 3px rgba(0,0,0,0.1),
+                inset 0 2px 5px rgba(0,0,0,0.1),
                 0 1px 0 rgba(255,255,255,0.8);
-            cursor: pointer;
-            transition: all 0.2s ease;
+            position: relative;
         }
 
-        .trackpad:hover {
-            background: linear-gradient(135deg, #f0f0f0 0%, #e0e0e0 100%);
-        }
-
-        .trackpad:active {
-            background: linear-gradient(135deg, #e8e8e8 0%, #d8d8d8 100%);
-            box-shadow: 
-                inset 0 2px 4px rgba(0,0,0,0.15),
-                0 1px 0 rgba(255,255,255,0.6);
+        /* Laptop body shadow for depth */
+        .macbook-keyboard::before {
+            content: '';
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            height: 20px;
+            background: radial-gradient(ellipse, rgba(0,0,0,0.15) 0%, transparent 70%);
+            z-index: -1;
         }
 
         @media (max-width: 768px) {
@@ -194,29 +190,29 @@
             }
             
             .key {
-                width: 28px;
-                height: 28px;
-                font-size: 9px;
+                width: 24px;
+                height: 24px;
+                font-size: 8px;
             }
             
             .key.space {
-                width: 140px;
+                width: 120px;
             }
             
             .key.shift {
-                width: 45px;
+                width: 38px;
             }
             
             .key.tab {
-                width: 40px;
+                width: 35px;
             }
             
             .key.enter {
-                width: 50px;
+                width: 40px;
             }
             
             .key.backspace {
-                width: 45px;
+                width: 38px;
             }
             
             .trackpad {
@@ -225,7 +221,8 @@
             }
             
             .keyboard-base {
-                padding: 15px 20px 25px 20px;
+                padding: 20px 25px 30px 25px;
+                transform: rotateX(20deg);
             }
         }
 
@@ -1615,25 +1612,25 @@
         });
     </script>
     
-    <!-- MacBook Keyboard -->
+    <!-- MacBook Keyboard - 3D Perspective View -->
     <div class="macbook-keyboard">
         <div class="keyboard-base">
             <div class="keyboard-rows">
-                <!-- Row 1: Function keys -->
+                <!-- Row 1: Function keys (smaller) -->
                 <div class="keyboard-row">
-                    <div class="key">esc</div>
-                    <div class="key">F1</div>
-                    <div class="key">F2</div>
-                    <div class="key">F3</div>
-                    <div class="key">F4</div>
-                    <div class="key">F5</div>
-                    <div class="key">F6</div>
-                    <div class="key">F7</div>
-                    <div class="key">F8</div>
-                    <div class="key">F9</div>
-                    <div class="key">F10</div>
-                    <div class="key">F11</div>
-                    <div class="key">F12</div>
+                    <div class="key" style="width: 26px; height: 18px; font-size: 7px;">esc</div>
+                    <div class="key" style="width: 26px; height: 18px; font-size: 7px;">F1</div>
+                    <div class="key" style="width: 26px; height: 18px; font-size: 7px;">F2</div>
+                    <div class="key" style="width: 26px; height: 18px; font-size: 7px;">F3</div>
+                    <div class="key" style="width: 26px; height: 18px; font-size: 7px;">F4</div>
+                    <div class="key" style="width: 26px; height: 18px; font-size: 7px;">F5</div>
+                    <div class="key" style="width: 26px; height: 18px; font-size: 7px;">F6</div>
+                    <div class="key" style="width: 26px; height: 18px; font-size: 7px;">F7</div>
+                    <div class="key" style="width: 26px; height: 18px; font-size: 7px;">F8</div>
+                    <div class="key" style="width: 26px; height: 18px; font-size: 7px;">F9</div>
+                    <div class="key" style="width: 26px; height: 18px; font-size: 7px;">F10</div>
+                    <div class="key" style="width: 26px; height: 18px; font-size: 7px;">F11</div>
+                    <div class="key" style="width: 26px; height: 18px; font-size: 7px;">F12</div>
                 </div>
                 
                 <!-- Row 2: Numbers -->
@@ -1674,7 +1671,7 @@
                 
                 <!-- Row 4: ASDF -->
                 <div class="keyboard-row">
-                    <div class="key">caps</div>
+                    <div class="key" style="width: 45px;">caps</div>
                     <div class="key">A</div>
                     <div class="key">S</div>
                     <div class="key">D</div>
@@ -1707,13 +1704,13 @@
                 
                 <!-- Row 6: Bottom row -->
                 <div class="keyboard-row">
-                    <div class="key">fn</div>
-                    <div class="key">ctrl</div>
-                    <div class="key">alt</div>
-                    <div class="key">cmd</div>
+                    <div class="key" style="width: 28px;">fn</div>
+                    <div class="key" style="width: 35px;">ctrl</div>
+                    <div class="key" style="width: 35px;">alt</div>
+                    <div class="key" style="width: 42px;">⌘</div>
                     <div class="key space"></div>
-                    <div class="key">cmd</div>
-                    <div class="key">alt</div>
+                    <div class="key" style="width: 42px;">⌘</div>
+                    <div class="key" style="width: 35px;">alt</div>
                     <div class="key">←</div>
                     <div class="key">↑</div>
                     <div class="key">↓</div>
