@@ -1231,19 +1231,62 @@
 </section>
 
 <div class="kurs-einblick-container">
-    <div class="browser-window">
-        <!-- macOS Browser Header -->
-        <div class="browser-header">
-            <div class="traffic-lights">
-                <div class="traffic-light close"></div>
-                <div class="traffic-light minimize"></div>
-                <div class="traffic-light maximize"></div>
+    <!-- Desktop Browser Container -->
+    <div class="browser-container">
+        <div class="macbook-keyboard">
+            <div class="keyboard-base">
+                <div class="trackpad"></div>
+                <div class="key-row">
+                    <div class="key">Q</div>
+                    <div class="key">W</div>
+                    <div class="key">E</div>
+                    <div class="key">R</div>
+                    <div class="key">T</div>
+                    <div class="key">Y</div>
+                    <div class="key">U</div>
+                    <div class="key">I</div>
+                    <div class="key">O</div>
+                    <div class="key">P</div>
+                </div>
+                <div class="key-row">
+                    <div class="key">A</div>
+                    <div class="key">S</div>
+                    <div class="key">D</div>
+                    <div class="key">F</div>
+                    <div class="key">G</div>
+                    <div class="key">H</div>
+                    <div class="key">J</div>
+                    <div class="key">K</div>
+                    <div class="key">L</div>
+                </div>
+                <div class="key-row">
+                    <div class="key">Z</div>
+                    <div class="key">X</div>
+                    <div class="key">C</div>
+                    <div class="key">V</div>
+                    <div class="key">B</div>
+                    <div class="key">N</div>
+                    <div class="key">M</div>
+                </div>
+                <div class="key-row">
+                    <div class="key space-bar"></div>
+                </div>
             </div>
-            <div class="address-bar">🔒 ai-allstars.com/kurs-einblick</div>
         </div>
-
-        <!-- Browser Content -->
-        <div class="browser-content">
+        
+        <div class="browser-window">
+            <div class="browser-header">
+                <div class="traffic-lights">
+                    <div class="light red"></div>
+                    <div class="light yellow"></div>
+                    <div class="light green"></div>
+                </div>
+                <div class="address-bar">
+                    <span>🔒 ai-allstars.com/kurs-einblick</span>
+                </div>
+            </div>
+            
+            <div class="browser-content" id="browserContent">
             <div class="logo-placeholder">
                 <div class="logo-box">
                     <img src="{{ url_for('static', filename='allstars-logo-white.png') }}" alt="AI Allstars" style="max-width: 200px; height: auto; filter: brightness(0) invert(1);">
@@ -1774,6 +1817,7 @@
                     </div>
                 </div>
             </div>
+            </div>
         </div>
     </div>
 
@@ -1791,21 +1835,16 @@
             document.getElementById('mainMenu').style.display = 'none';
             
             // Hide all content areas
-            const areas = document.querySelectorAll('.content-area');
-            areas.forEach(area => area.classList.remove('active'));
+            document.querySelectorAll('.content-area').forEach(area => {
+                area.classList.remove('active');
+            });
             
             // Show selected content
-            document.getElementById(type).classList.add('active');
+            document.getElementById(type + 'Content').classList.add('active');
             
-            // Update both browser and phone content
-            const contentElement = document.getElementById(type);
-            const browserContent = document.getElementById('browserContent');
+            // Update phone content for mobile
             const phoneContent = document.getElementById('phoneContent');
-            
-            if (browserContent && contentElement) {
-                browserContent.innerHTML = contentElement.innerHTML;
-            }
-            
+            const contentElement = document.getElementById(type + 'Content');
             if (phoneContent && contentElement) {
                 phoneContent.innerHTML = contentElement.innerHTML;
             }
@@ -1813,24 +1852,16 @@
 
         function showMainMenu() {
             // Show main menu
-            const mainMenu = document.getElementById('mainMenu');
-            if (mainMenu) {
-                mainMenu.style.display = 'block';
-            }
+            document.getElementById('mainMenu').style.display = 'block';
             
             // Hide all content areas
             document.querySelectorAll('.content-area').forEach(area => {
                 area.classList.remove('active');
             });
             
-            // Update both browser and phone content with main menu
-            const browserContent = document.getElementById('browserContent');
+            // Update phone content for mobile
             const phoneContent = document.getElementById('phoneContent');
-            
-            if (browserContent && mainMenu) {
-                browserContent.innerHTML = mainMenu.innerHTML;
-            }
-            
+            const mainMenu = document.getElementById('mainMenu');
             if (phoneContent && mainMenu) {
                 phoneContent.innerHTML = mainMenu.innerHTML;
             }
@@ -1838,10 +1869,7 @@
 
         function showDepartment(department) {
             // Hide praxis overview
-            const praxisElement = document.getElementById('praxis');
-            if (praxisElement) {
-                praxisElement.classList.remove('active');
-            }
+            document.getElementById('praxisContent').classList.remove('active');
             
             // Hide all department details
             document.querySelectorAll('[id$="Detail"]').forEach(detail => {
@@ -1849,21 +1877,13 @@
             });
             
             // Show selected department
+            document.getElementById(department + 'Detail').classList.add('active');
+            
+            // Update phone content for mobile
+            const phoneContent = document.getElementById('phoneContent');
             const departmentElement = document.getElementById(department + 'Detail');
-            if (departmentElement) {
-                departmentElement.classList.add('active');
-                
-                // Update both browser and phone content
-                const browserContent = document.getElementById('browserContent');
-                const phoneContent = document.getElementById('phoneContent');
-                
-                if (browserContent) {
-                    browserContent.innerHTML = departmentElement.innerHTML;
-                }
-                
-                if (phoneContent) {
-                    phoneContent.innerHTML = departmentElement.innerHTML;
-                }
+            if (phoneContent && departmentElement) {
+                phoneContent.innerHTML = departmentElement.innerHTML;
             }
         }
 
@@ -1916,130 +1936,17 @@
         });
 
         // Initialize content on page load
-        window.addEventListener('load', function() {
-            const mainMenu = document.getElementById('mainMenu');
-            const browserContent = document.getElementById('browserContent');
-            const phoneContent = document.getElementById('phoneContent');
-            
-            if (browserContent && mainMenu) {
-                browserContent.innerHTML = mainMenu.innerHTML;
-            }
-            
-            if (phoneContent && mainMenu) {
-                phoneContent.innerHTML = mainMenu.innerHTML;
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check if we're on mobile and need to sync content
+            if (window.innerWidth <= 768) {
+                const phoneContent = document.getElementById('phoneContent');
+                const mainMenu = document.getElementById('mainMenu');
+                if (phoneContent && mainMenu) {
+                    phoneContent.innerHTML = mainMenu.innerHTML;
+                }
             }
         });
     </script>
     
-    <!-- MacBook Keyboard - 3D Perspective View (hidden on mobile) -->
-    <div class="macbook-keyboard desktop-only">
-        <div class="keyboard-base">
-            <div class="keyboard-rows">
-                <!-- Row 1: Function keys (smaller) -->
-                <div class="keyboard-row">
-                    <div class="key" style="width: 30px; height: 22px; font-size: 8px;">esc</div>
-                    <div class="key" style="width: 30px; height: 22px; font-size: 8px;">F1</div>
-                    <div class="key" style="width: 30px; height: 22px; font-size: 8px;">F2</div>
-                    <div class="key" style="width: 30px; height: 22px; font-size: 8px;">F3</div>
-                    <div class="key" style="width: 30px; height: 22px; font-size: 8px;">F4</div>
-                    <div class="key" style="width: 30px; height: 22px; font-size: 8px;">F5</div>
-                    <div class="key" style="width: 30px; height: 22px; font-size: 8px;">F6</div>
-                    <div class="key" style="width: 30px; height: 22px; font-size: 8px;">F7</div>
-                    <div class="key" style="width: 30px; height: 22px; font-size: 8px;">F8</div>
-                    <div class="key" style="width: 30px; height: 22px; font-size: 8px;">F9</div>
-                    <div class="key" style="width: 30px; height: 22px; font-size: 8px;">F10</div>
-                    <div class="key" style="width: 30px; height: 22px; font-size: 8px;">F11</div>
-                    <div class="key" style="width: 30px; height: 22px; font-size: 8px;">F12</div>
-                </div>
-                
-                <!-- Row 2: Numbers -->
-                <div class="keyboard-row">
-                    <div class="key">`</div>
-                    <div class="key">1</div>
-                    <div class="key">2</div>
-                    <div class="key">3</div>
-                    <div class="key">4</div>
-                    <div class="key">5</div>
-                    <div class="key">6</div>
-                    <div class="key">7</div>
-                    <div class="key">8</div>
-                    <div class="key">9</div>
-                    <div class="key">0</div>
-                    <div class="key">-</div>
-                    <div class="key">=</div>
-                    <div class="key backspace">⌫</div>
-                </div>
-                
-                <!-- Row 3: QWERTY -->
-                <div class="keyboard-row">
-                    <div class="key tab">tab</div>
-                    <div class="key">Q</div>
-                    <div class="key">W</div>
-                    <div class="key">E</div>
-                    <div class="key">R</div>
-                    <div class="key">T</div>
-                    <div class="key">Y</div>
-                    <div class="key">U</div>
-                    <div class="key">I</div>
-                    <div class="key">O</div>
-                    <div class="key">P</div>
-                    <div class="key">[</div>
-                    <div class="key">]</div>
-                    <div class="key">\</div>
-                </div>
-                
-                <!-- Row 4: ASDF -->
-                <div class="keyboard-row">
-                    <div class="key" style="width: 52px;">caps</div>
-                    <div class="key">A</div>
-                    <div class="key">S</div>
-                    <div class="key">D</div>
-                    <div class="key">F</div>
-                    <div class="key">G</div>
-                    <div class="key">H</div>
-                    <div class="key">J</div>
-                    <div class="key">K</div>
-                    <div class="key">L</div>
-                    <div class="key">;</div>
-                    <div class="key">'</div>
-                    <div class="key enter">⏎</div>
-                </div>
-                
-                <!-- Row 5: ZXCV -->
-                <div class="keyboard-row">
-                    <div class="key shift">shift</div>
-                    <div class="key">Z</div>
-                    <div class="key">X</div>
-                    <div class="key">C</div>
-                    <div class="key">V</div>
-                    <div class="key">B</div>
-                    <div class="key">N</div>
-                    <div class="key">M</div>
-                    <div class="key">,</div>
-                    <div class="key">.</div>
-                    <div class="key">/</div>
-                    <div class="key shift">shift</div>
-                </div>
-                
-                <!-- Row 6: Bottom row -->
-                <div class="keyboard-row">
-                    <div class="key" style="width: 35px;">fn</div>
-                    <div class="key" style="width: 42px;">ctrl</div>
-                    <div class="key" style="width: 42px;">alt</div>
-                    <div class="key" style="width: 48px;">⌘</div>
-                    <div class="key space"></div>
-                    <div class="key" style="width: 48px;">⌘</div>
-                    <div class="key" style="width: 42px;">alt</div>
-                    <div class="key">←</div>
-                    <div class="key">↑</div>
-                    <div class="key">↓</div>
-                    <div class="key">→</div>
-                </div>
-            </div>
-            
-            <!-- Trackpad -->
-            <div class="trackpad"></div>
-        </div>
-    </div>
-</div>
+
 {% endblock %}
