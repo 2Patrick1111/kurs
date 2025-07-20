@@ -181,6 +181,199 @@
     }
 }
 
+/* Funding Overview Table Styles */
+.funding-overview {
+    max-width: 1200px;
+    margin: 80px auto 0;
+    padding: 40px 20px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.funding-overview-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.funding-overview-header h2 {
+    font-size: 2rem;
+    font-weight: 800;
+    color: white;
+    margin-bottom: 15px;
+}
+
+.funding-overview-header .subtitle {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.95rem;
+    margin-bottom: 5px;
+}
+
+.funding-table-container {
+    overflow-x: auto;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.funding-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.8rem;
+}
+
+.section-header {
+    background: #2c3e50;
+    color: white;
+    padding: 12px 8px;
+    font-weight: bold;
+    text-align: left;
+    font-size: 0.85rem;
+}
+
+.company-size-row {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.company-size-cell {
+    text-align: center;
+    padding: 10px 5px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    position: relative;
+    color: white;
+}
+
+.people-icons {
+    color: #667eea;
+    font-size: 1.1rem;
+    margin-bottom: 3px;
+    line-height: 1;
+}
+
+.company-label {
+    font-weight: bold;
+    color: white;
+    font-size: 0.75rem;
+    line-height: 1.1;
+}
+
+.red-label {
+    color: #ff6b6b;
+    font-weight: bold;
+}
+
+.row-header {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    font-weight: bold;
+    color: white;
+    text-align: left;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    width: 180px;
+    font-size: 0.8rem;
+    line-height: 1.2;
+}
+
+.data-cell {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 8px 4px;
+    text-align: center;
+    vertical-align: middle;
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.percentage-badge {
+    padding: 6px 8px;
+    border-radius: 12px;
+    color: white;
+    font-weight: bold;
+    font-size: 0.8rem;
+    display: inline-block;
+    margin: 1px;
+}
+
+.badge-100 { background: #e74c3c; }
+.badge-75 { background: #e67e22; }
+.badge-50 { background: #f39c12; }
+.badge-25 { background: #95a5a6; }
+.badge-60 { background: #8e44ad; }
+
+.special-note {
+    font-size: 0.65rem;
+    color: #ff6b6b;
+    margin-top: 2px;
+    line-height: 1.1;
+}
+
+.no-coverage {
+    color: #95a5a6;
+    font-size: 0.75rem;
+    font-weight: normal;
+}
+
+.covered {
+    color: white;
+    font-size: 0.75rem;
+    font-weight: bold;
+}
+
+.employer-note {
+    color: #ff6b6b;
+    font-size: 0.7rem;
+    font-weight: bold;
+    line-height: 1.1;
+}
+
+.neu-badge {
+    position: absolute;
+    top: -8px;
+    right: 5px;
+    background: #e74c3c;
+    color: white;
+    padding: 2px 6px;
+    border-radius: 8px;
+    font-size: 0.6rem;
+    font-weight: bold;
+}
+
+.qualification-money-note {
+    margin-top: 20px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 12px;
+    text-align: center;
+}
+
+.qualification-money-note p {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin: 0;
+}
+
+.qualification-money-note strong {
+    color: #667eea;
+}
+
+@media (max-width: 768px) {
+    .funding-overview {
+        margin-top: 60px;
+        padding: 20px 10px;
+    }
+    
+    .funding-overview-header h2 {
+        font-size: 1.5rem;
+    }
+    
+    .funding-table {
+        font-size: 0.7rem;
+    }
+    
+    .row-header {
+        width: 120px;
+        font-size: 0.7rem;
+    }
+}
+
 
 
 
