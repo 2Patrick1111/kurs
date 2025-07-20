@@ -42,13 +42,15 @@
         }
 
         .arrow-container {
+            position: relative;
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 10px;
+            margin-top: -10px;
         }
 
         .curved-arrow {
-            width: 200px;
-            height: 60px;
+            width: 300px;
+            height: 120px;
             opacity: 0.8;
         }
 
@@ -204,8 +206,8 @@
             }
 
             .curved-arrow {
-                width: 150px;
-                height: 45px;
+                width: 200px;
+                height: 80px;
             }
             
             .hero-stats {
@@ -1402,14 +1404,14 @@
             
             <!-- Curved Arrow -->
             <div class="arrow-container">
-                <svg class="curved-arrow" viewBox="0 0 200 100" xmlns="http://www.w3.org/2000/svg">
+                <svg class="curved-arrow" viewBox="0 0 300 150" xmlns="http://www.w3.org/2000/svg">
                     <defs>
                         <marker id="arrowhead" markerWidth="10" markerHeight="7" 
                                 refX="9" refY="3.5" orient="auto">
                             <polygon points="0 0, 10 3.5, 0 7" fill="#00d4ff" />
                         </marker>
                     </defs>
-                    <path d="M 50 20 Q 100 5 150 30" stroke="#00d4ff" stroke-width="3" 
+                    <path d="M 150 10 Q 200 30 250 120" stroke="#00d4ff" stroke-width="3" 
                           fill="none" marker-end="url(#arrowhead)" />
                 </svg>
             </div>
