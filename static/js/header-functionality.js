@@ -59,14 +59,21 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Logo click handler
-    function handleLogoClick(event) {
-        // Allow normal navigation behavior
-        console.log('Logo clicked - navigating to homepage');
-    }
-
-    // Make handleLogoClick available globally
-    window.handleLogoClick = handleLogoClick;
+    // Logo Click Handler
+    window.handleLogoClick = function(event) {
+        event.preventDefault();
+        
+        if (window.location.pathname === '/') {
+            // If on homepage, smooth scroll to top
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        } else {
+            // If on other page, navigate to homepage
+            window.location.href = '/';
+        }
+    };
 
     // Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
