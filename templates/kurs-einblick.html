@@ -914,8 +914,9 @@
         /* Department Detail Styles */
         .detail-content {
             display: grid;
-            grid-template-columns: 1fr;
+            grid-template-columns: 1fr 1fr;
             gap: 30px;
+            align-items: start;
         }
 
         .detail-video {
@@ -1075,7 +1076,12 @@
             .logo-box span {
                 font-size: 2rem;
             }
-        }
+            
+            .detail-content {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
             .browser-window {
                 margin: 10px;
                 border-radius: 8px;
@@ -1111,6 +1117,7 @@
             .bonus-videos {
                 flex-direction: column;
             }
+        }
             
             .assignment-footer {
                 flex-direction: column;
