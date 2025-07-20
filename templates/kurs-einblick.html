@@ -241,8 +241,16 @@
             border-radius: 2px;
         }
 
+        .desktop-only {
+            display: block;
+        }
+
         @media (max-width: 768px) {
             .browser-container {
+                display: none !important;
+            }
+
+            .desktop-only {
                 display: none !important;
             }
 
@@ -1805,17 +1813,35 @@
 
         function showMainMenu() {
             // Show main menu
-            document.getElementById('mainMenu').style.display = 'block';
+            const mainMenu = document.getElementById('mainMenu');
+            if (mainMenu) {
+                mainMenu.style.display = 'block';
+            }
             
             // Hide all content areas
             document.querySelectorAll('.content-area').forEach(area => {
                 area.classList.remove('active');
             });
+            
+            // Update both browser and phone content with main menu
+            const browserContent = document.getElementById('browserContent');
+            const phoneContent = document.getElementById('phoneContent');
+            
+            if (browserContent && mainMenu) {
+                browserContent.innerHTML = mainMenu.innerHTML;
+            }
+            
+            if (phoneContent && mainMenu) {
+                phoneContent.innerHTML = mainMenu.innerHTML;
+            }
         }
 
         function showDepartment(department) {
             // Hide praxis overview
-            document.getElementById('praxis').classList.remove('active');
+            const praxisElement = document.getElementById('praxis');
+            if (praxisElement) {
+                praxisElement.classList.remove('active');
+            }
             
             // Hide all department details
             document.querySelectorAll('[id$="Detail"]').forEach(detail => {
@@ -1824,18 +1850,20 @@
             
             // Show selected department
             const departmentElement = document.getElementById(department + 'Detail');
-            departmentElement.classList.add('active');
-            
-            // Update both browser and phone content
-            const browserContent = document.getElementById('browserContent');
-            const phoneContent = document.getElementById('phoneContent');
-            
-            if (browserContent) {
-                browserContent.innerHTML = departmentElement.innerHTML;
-            }
-            
-            if (phoneContent) {
-                phoneContent.innerHTML = departmentElement.innerHTML;
+            if (departmentElement) {
+                departmentElement.classList.add('active');
+                
+                // Update both browser and phone content
+                const browserContent = document.getElementById('browserContent');
+                const phoneContent = document.getElementById('phoneContent');
+                
+                if (browserContent) {
+                    browserContent.innerHTML = departmentElement.innerHTML;
+                }
+                
+                if (phoneContent) {
+                    phoneContent.innerHTML = departmentElement.innerHTML;
+                }
             }
         }
 
@@ -1903,8 +1931,8 @@
         });
     </script>
     
-    <!-- MacBook Keyboard - 3D Perspective View -->
-    <div class="macbook-keyboard">
+    <!-- MacBook Keyboard - 3D Perspective View (hidden on mobile) -->
+    <div class="macbook-keyboard desktop-only">
         <div class="keyboard-base">
             <div class="keyboard-rows">
                 <!-- Row 1: Function keys (smaller) -->
