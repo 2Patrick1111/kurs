@@ -49,8 +49,10 @@
 .pricing-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
     gap: 30px;
     flex: 2;
+    min-height: 800px;
 }
 
 .pricing-card {
@@ -115,16 +117,17 @@
 .funding-info {
     flex: 1;
     max-width: 400px;
-    padding: 30px;
+    min-height: 800px;
+    padding: 40px 30px;
     background: rgba(239, 68, 68, 0.15);
     backdrop-filter: blur(20px);
     border-radius: 20px;
     border: 2px solid rgba(239, 68, 68, 0.3);
     color: white;
     text-align: left;
-    position: sticky;
-    top: 120px;
-    align-self: flex-start;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .funding-info h3 {
