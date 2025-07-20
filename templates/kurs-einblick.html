@@ -182,7 +182,74 @@
             z-index: -1;
         }
 
+        /* Mobile Phone Frame */
+        .phone-container {
+            display: none;
+            width: 320px;
+            height: 640px;
+            margin: 30px auto;
+            position: relative;
+            background: linear-gradient(145deg, #1a1a1a, #2d2d2d);
+            border-radius: 30px;
+            padding: 20px 10px;
+            box-shadow: 
+                0 20px 60px rgba(0,0,0,0.5),
+                inset 0 1px 0 rgba(255,255,255,0.1),
+                inset 0 -1px 0 rgba(0,0,0,0.3);
+        }
+
+        .phone-screen {
+            width: 100%;
+            height: 100%;
+            background: #000;
+            border-radius: 25px;
+            overflow: hidden;
+            position: relative;
+            border: 2px solid #333;
+        }
+
+        .phone-notch {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 20px;
+            background: #000;
+            border-radius: 0 0 15px 15px;
+            z-index: 10;
+        }
+
+        .phone-content {
+            height: 100%;
+            overflow-y: auto;
+            overflow-x: hidden;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 25px 15px 15px 15px;
+        }
+
+        .phone-content::-webkit-scrollbar {
+            width: 3px;
+        }
+
+        .phone-content::-webkit-scrollbar-track {
+            background: rgba(255,255,255,0.1);
+        }
+
+        .phone-content::-webkit-scrollbar-thumb {
+            background: rgba(255,255,255,0.3);
+            border-radius: 2px;
+        }
+
         @media (max-width: 768px) {
+            .browser-container {
+                display: none !important;
+            }
+
+            .phone-container {
+                display: block;
+            }
+
             .hero-text h1 {
                 font-size: 2.5rem;
             }
@@ -1702,18 +1769,38 @@
         </div>
     </div>
 
+    <!-- Mobile Phone Container -->
+    <div class="phone-container">
+        <div class="phone-screen">
+            <div class="phone-notch"></div>
+            <div class="phone-content" id="phoneContent"></div>
+        </div>
+    </div>
+
     <script>
         function showContent(type) {
             // Hide main menu
             document.getElementById('mainMenu').style.display = 'none';
             
             // Hide all content areas
-            document.querySelectorAll('.content-area').forEach(area => {
-                area.classList.remove('active');
-            });
+            const areas = document.querySelectorAll('.content-area');
+            areas.forEach(area => area.classList.remove('active'));
             
             // Show selected content
-            document.getElementById(type + 'Content').classList.add('active');
+            document.getElementById(type).classList.add('active');
+            
+            // Update both browser and phone content
+            const contentElement = document.getElementById(type);
+            const browserContent = document.getElementById('browserContent');
+            const phoneContent = document.getElementById('phoneContent');
+            
+            if (browserContent && contentElement) {
+                browserContent.innerHTML = contentElement.innerHTML;
+            }
+            
+            if (phoneContent && contentElement) {
+                phoneContent.innerHTML = contentElement.innerHTML;
+            }
         }
 
         function showMainMenu() {
@@ -1728,7 +1815,7 @@
 
         function showDepartment(department) {
             // Hide praxis overview
-            document.getElementById('praxisContent').classList.remove('active');
+            document.getElementById('praxis').classList.remove('active');
             
             // Hide all department details
             document.querySelectorAll('[id$="Detail"]').forEach(detail => {
@@ -1736,7 +1823,20 @@
             });
             
             // Show selected department
-            document.getElementById(department + 'Detail').classList.add('active');
+            const departmentElement = document.getElementById(department + 'Detail');
+            departmentElement.classList.add('active');
+            
+            // Update both browser and phone content
+            const browserContent = document.getElementById('browserContent');
+            const phoneContent = document.getElementById('phoneContent');
+            
+            if (browserContent) {
+                browserContent.innerHTML = departmentElement.innerHTML;
+            }
+            
+            if (phoneContent) {
+                phoneContent.innerHTML = departmentElement.innerHTML;
+            }
         }
 
         // Add click events for quiz options
@@ -1785,6 +1885,21 @@
                     this.style.background = 'rgba(255,255,255,0.1)';
                 }, 300);
             });
+        });
+
+        // Initialize content on page load
+        window.addEventListener('load', function() {
+            const mainMenu = document.getElementById('mainMenu');
+            const browserContent = document.getElementById('browserContent');
+            const phoneContent = document.getElementById('phoneContent');
+            
+            if (browserContent && mainMenu) {
+                browserContent.innerHTML = mainMenu.innerHTML;
+            }
+            
+            if (phoneContent && mainMenu) {
+                phoneContent.innerHTML = mainMenu.innerHTML;
+            }
         });
     </script>
     
