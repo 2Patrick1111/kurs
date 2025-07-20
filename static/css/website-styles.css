@@ -358,6 +358,7 @@ body {
 
 .contact-hero h1 {
     font-size: clamp(2.5rem, 8vw, 80px);
+    margin-bottom: 30px;
 }
 
 .hero-subtitle {
