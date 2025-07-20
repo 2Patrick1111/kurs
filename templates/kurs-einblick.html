@@ -752,9 +752,20 @@
         }
 
         .department-card[onclick*="marketing"] .thumbnail-placeholder {
-            background: url('/static/images/marketing-video.png') center/cover;
+            background: url('/static/images/marketing-video.png') no-repeat center center;
+            background-size: cover;
             border: none;
             padding: 0;
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: -moz-crisp-edges;
+            image-rendering: crisp-edges;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            will-change: transform;
         }
 
         .department-card[onclick*="marketing"] .thumbnail-placeholder span,
