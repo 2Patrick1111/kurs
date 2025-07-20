@@ -71,6 +71,46 @@
             min-height: 80vh;
         }
 
+        /* Laptop Computer Frame */
+        .laptop-frame {
+            background: linear-gradient(135deg, #3a3a3a 0%, #2d2d2d 100%);
+            border-radius: 20px 20px 8px 8px;
+            padding: 25px 25px 8px 25px;
+            box-shadow: 
+                0 30px 80px rgba(0,0,0,0.4),
+                0 10px 30px rgba(0,0,0,0.3),
+                inset 0 2px 0 rgba(255,255,255,0.1),
+                inset 0 -2px 0 rgba(0,0,0,0.2);
+            position: relative;
+            max-width: 1150px;
+            margin: 0 auto;
+        }
+
+        .laptop-frame::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.2) 20%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0.2) 80%, transparent 100%);
+            border-radius: 2px;
+        }
+
+        .laptop-frame::after {
+            content: '';
+            position: absolute;
+            top: 6px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 8px;
+            height: 8px;
+            background: radial-gradient(circle, rgba(100,100,100,0.8) 0%, rgba(50,50,50,0.9) 100%);
+            border-radius: 50%;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
         /* MacBook Keyboard Styles - 3D Perspective */
         .macbook-keyboard {
             width: 100%;
@@ -246,6 +286,11 @@
             .macbook-keyboard {
                 transform: scale(0.8);
                 margin-top: -15px;
+            }
+
+            .laptop-frame {
+                padding: 20px 20px 6px 20px;
+                max-width: 95%;
             }
         }
 
@@ -1014,7 +1059,8 @@
 </section>
 
 <div class="kurs-einblick-container">
-    <div class="browser-window">
+    <div class="laptop-frame">
+        <div class="browser-window">
         <!-- macOS Browser Header -->
         <div class="browser-header">
             <div class="traffic-lights">
@@ -1771,6 +1817,7 @@
             <!-- Trackpad -->
             <div class="trackpad"></div>
         </div>
+    </div>
     </div>
 </div>
 {% endblock %}
